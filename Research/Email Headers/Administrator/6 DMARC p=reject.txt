@@ -1,0 +1,158 @@
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=192.168.7.110; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=pass (p=reject dis=none) header.from=domaintoprotect.xyz
+Authentication-Results: mail.receivingdomain.xyz;
+	dkim=pass (2048-bit key; unprotected) header.d=domaintoprotect.xyz header.i=@domaintoprotect.xyz header.a=rsa-sha256 header.s=default header.b=D4W87STf;
+	dkim-atps=neutral
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id E631A120EE7
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 16:36:33 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id 9C2B4120EF5
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 16:36:33 -0500 (CDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=domaintoprotect.xyz;
+	s=default; t=1598823393;
+	bh=cXiH+E1G2whPc/3AGVOSNnVqu/ZqTOUcaYD1GKekjfI=;
+	h=Date:From:Subject:To:In-Reply-To:References:From;
+	b=D4W87STfpFuUpTl7GEsNAXwVB/cZBXYIr3mcgsPWJ+FqdB5Chp5R82hook3pbq1cE
+	 0/bw0H3hv6ofUM8MfJjymU14SEJd8SpAmAHdraNAAUyY546AlTH6F81ctpziwBzZpk
+	 R6LgzyjCAV2jTuFTqy6ogrYp3MqYcm1hGs1tmCKj1SPrZm5UIx6vVLixyd0SCQbi0B
+	 mvsyn5BdG2/Sa8e8zX2v/Iov7/NvKIHdwDJ5l9Lh5S20nfOx+GFcuyNNyYRU1GnSWP
+	 b8bnIu9TYeCpqEGjIwozWM83vZIl0Qxlq44EVHF1pdBpGj+70YJL02lrdMIY7EBYCH
+	 dYBdLW+wknBkQ==
+MIME-Version: 1.0
+Date: Sun, 30 Aug 2020 21:36:33 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_235_242355495.1598823393"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <78b4aaff3a20b0d05129877b1ad6e247@domaintoprotect.xyz>
+Subject: From Admin; DMARC p=reject
+To: bob@receivingdomain.xyz
+In-Reply-To: <2bb0c78b40249305f529c69363d37c5b@domaintoprotect.xyz>
+References: <2bb0c78b40249305f529c69363d37c5b@domaintoprotect.xyz>
+ <9b5668e621660adaa4c1093b5286725b@domaintoprotect.xyz>
+ <8e6ba5ba8e5ab8360fadb4f11475ab44@domaintoprotect.xyz>
+ <168809f9c60cb75965e3ca85a1469042@domaintoprotect.xyz>
+ <d2783c0814956430b50ab372a287d635@domaintoprotect.xyz>
+ <6204360f0470c5e5ce5b5a600ba155e5@domaintoprotect.xyz>
+ <715769f59bab7867cf007a71424b84de@domaintoprotect.xyz>
+ <5b4f5c3e0eefee4f1d5e8a38e02fb77b@domaintoprotect.xyz>
+
+
+----=_RainLoop_235_242355495.1598823393
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+DMARC p=3Dreject
+
+----=_RainLoop_235_242355495.1598823393
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">D=
+MARC p=3Dreject<br><br><signature></signature></div></body></html>
+
+----=_RainLoop_235_242355495.1598823393--
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=pass (p=reject dis=none) header.from=domaintoprotect.xyz
+Authentication-Results: mail.receivingdomain.xyz;
+	dkim=pass (2048-bit key; unprotected) header.d=domaintoprotect.xyz header.i=@domaintoprotect.xyz header.a=rsa-sha256 header.s=default header.b=T3rpSAVR;
+	dkim-atps=neutral
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 793CF120EE7
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 16:37:00 -0500 (CDT)
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id 71058121298
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 16:37:00 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id 5F39F120EF5
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 16:37:00 -0500 (CDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=domaintoprotect.xyz;
+	s=default; t=1598823420;
+	bh=f9LAFMDzs6ph5ng9dBLlmta47fTRkXYWWBKcGi1sa1w=;
+	h=Date:From:Subject:To:In-Reply-To:References:From;
+	b=T3rpSAVRNc1RObfGl8CC5J/UxP+dZPnprrCwWlGnqe/gSnUNeXpG/M3uEaLUXR4ZK
+	 31hwJiMT7TLBH5HIe7ZDV1AHmsa3iPCTd4BqZWFLt0ITZNLKt7xFH8k8DsEGU8fEmo
+	 Pbx/Friq6j8ODL0UXzT0QLvT9Zp9ZY2rjznYvVfwAFVqPt7QWc6ntGcRvTcKe5DG5I
+	 RJTD0Uq4z1aTrlGRmuTRZjiAryBK2CPCHsyfkKwNos2lR8Ez2RWfbL3Wk1bb/evEM5
+	 SxW+IAmlidaBthwHZfDO0Tu9Ll+eb+/nkLhT8mRfnvj+6k1CQiGqG31CgmuTIm7BmU
+	 keWwpxOkORW/Q==
+MIME-Version: 1.0
+Date: Sun, 30 Aug 2020 21:37:00 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_986_735732715.1598823420"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <595b541c09923359ae25b8e0366aaec6@domaintoprotect.xyz>
+Subject: Re: From Admin; DMARC p=reject
+To: bob@forwardingdomain.xyz
+In-Reply-To: <2fb9cd6c9949786d55e1b18f07b9c4b8@domaintoprotect.xyz>
+References: <2fb9cd6c9949786d55e1b18f07b9c4b8@domaintoprotect.xyz>
+ <313160e748b7e0346dea15a93002f531@domaintoprotect.xyz>
+ <ea4fe0d32ca114c35c7e251aafb6ba89@domaintoprotect.xyz>
+ <6741905334b0c43335d864ce5a431b16@domaintoprotect.xyz>
+ <a8255e516d46d69a55e79e9d47c60cd0@domaintoprotect.xyz>
+
+
+----=_RainLoop_986_735732715.1598823420
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+DMARC p=3Dreject
+
+----=_RainLoop_986_735732715.1598823420
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">D=
+MARC p=3Dreject</div></body></html>
+
+----=_RainLoop_986_735732715.1598823420--
+
+
+
+EMAILS SENT BY THE SPOOFER WERE NOT RECEIVED.
+
+Logs:
+
+Aug 30 16:39:08 mail postfix/smtpd[29855]: connect from unknown[192.168.7.72]
+Aug 30 16:39:08 mail policyd-spf[29859]: prepend Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.72; helo=mail.domaintoprotect.xyz; en
+velope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN>
+Aug 30 16:39:08 mail postfix/smtpd[29855]: A1950120EE7: client=unknown[192.168.7.72]
+Aug 30 16:39:08 mail postfix/cleanup[29860]: A1950120EE7: message-id=<20200830213908.89A2114144F@mail.domaintoprotect.xyz>
+Aug 30 16:39:08 mail opendmarc[28830]: A1950120EE7: domaintoprotect.xyz fail
+Aug 30 16:39:08 mail postfix/cleanup[29860]: A1950120EE7: milter-reject: END-OF-MESSAGE from unknown[192.168.7.72]: 5.7.1 rejected by DMARC policy for domainto
+protect.xyz; from=<administrator@domaintoprotect.xyz> to=<bob@receivingdomain.xyz> proto=ESMTP helo=<mail.domaintoprotect.xyz>
+Aug 30 16:39:08 mail postfix/smtpd[29855]: disconnect from unknown[192.168.7.72] ehlo=2 starttls=1 mail=1 rcpt=1 data=0/1 quit=1 commands=6/7
+Aug 30 16:39:08 mail postfix/pickup[29834]: A6076120EE7: uid=131 from=<opendmarc>
+Aug 30 16:39:08 mail opendmarc[28830]: ignoring connection from localhost
+Aug 30 16:39:08 mail postfix/cleanup[29860]: A6076120EE7: message-id=<20200830213908.A6076120EE7@mail.receivingdomain.xyz>
+Aug 30 16:39:08 mail postfix/qmgr[28979]: A6076120EE7: from=<opendmarc@receivingdomain.xyz>, size=1861, nrcpt=1 (queue active)
+Aug 30 16:39:08 mail postfix/smtp[29950]: A6076120EE7: to=<dmarc_reports@domaintoprotect.xyz>, relay=mail.domaintoprotect.xyz[192.168.7.110]:25, delay=0.13, delays=0.01/0.01/0.08/0.03, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as C24D2120EF5)
+Aug 30 16:39:08 mail postfix/qmgr[28979]: A6076120EE7: removed
+Aug 30 16:39:16 mail postfix/smtpd[29855]: connect from forwardingdomain.xyz[192.168.7.140]
+Aug 30 16:39:16 mail policyd-spf[29859]: prepend Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN>
+Aug 30 16:39:16 mail postfix/smtpd[29855]: 42B70120EE7: client=forwardingdomain.xyz[192.168.7.140]
+Aug 30 16:39:16 mail postfix/cleanup[29860]: 42B70120EE7: message-id=<20200830213916.37A8A14144F@mail.domaintoprotect.xyz>
+Aug 30 16:39:16 mail postfix/pickup[29834]: 4A9D512113B: uid=131 from=<opendmarc>
+Aug 30 16:39:16 mail opendmarc[28830]: ignoring connection from localhost
+Aug 30 16:39:16 mail opendmarc[28830]: 42B70120EE7: domaintoprotect.xyz fail
+Aug 30 16:39:16 mail postfix/cleanup[29860]: 42B70120EE7: milter-reject: END-OF-MESSAGE from forwardingdomain.xyz[192.168.7.140]: 5.7.1 rejected by DMARC policy for domaintoprotect.xyz; from=<administrator@domaintoprotect.xyz> to=<bob@receivingdomain.xyz> proto=ESMTP helo=<mail.forwardingdomain.xyz>
+Aug 30 16:39:16 mail postfix/smtpd[29855]: disconnect from forwardingdomain.xyz[192.168.7.140] ehlo=2 starttls=1 mail=1 rcpt=1 data=0/1 quit=1 commands=6/7
+Aug 30 16:39:16 mail postfix/cleanup[29949]: 4A9D512113B: message-id=<20200830213916.4A9D512113B@mail.receivingdomain.xyz>
+Aug 30 16:39:16 mail postfix/qmgr[28979]: 4A9D512113B: from=<opendmarc@receivingdomain.xyz>, size=2078, nrcpt=1 (queue active)
+Aug 30 16:39:16 mail postfix/smtp[29950]: 4A9D512113B: to=<dmarc_reports@domaintoprotect.xyz>, relay=mail.domaintoprotect.xyz[192.168.7.110]:25, delay=0.04, delays=0.03/0/0.01/0.01, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 4F185120EF5)
+Aug 30 16:39:16 mail postfix/qmgr[28979]: 4A9D512113B: removed

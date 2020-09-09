@@ -1,0 +1,16 @@
+Command to parse DMARC xml aggregate reports, get unique IP's (sorted), and use dig to perform a reverse lookup and assist in identifying devices sending emails.
+
+find . -type f -name "*.xml" | xargs -I {} cat {} | grep "source_ip" | cut -d ">" -f 2 | cut -d "<" -f 1 | sort -u | xargs -I {} dig -4 -x {} | egrep -A 1 "ANSWER SECTION|DiG" | egrep -v "cmd|--"
+
+
+Example:
+
+bob@mail:~/Downloads/parsedmarc/ToCheck$ find . -type f -name "*.xml" | xargs -I {} cat {} | grep "source_ip" | cut -d ">" -f 2 | cut -d "<" -f 1 | sort -u | xargs -I {} dig -4 -x {} | egrep -A 1 "ANSWER SECTION|DiG" | egrep -v "cmd|--"
+
+; <<>> DiG 9.16.1-Ubuntu <<>> -4 -x 192.168.7.110
+;; ANSWER SECTION:
+110.7.168.192.in-addr.arpa. 86400 IN	PTR	domaintoprotect.xyz.
+; <<>> DiG 9.16.1-Ubuntu <<>> -4 -x 192.168.7.140
+;; ANSWER SECTION:
+140.7.168.192.in-addr.arpa. 86400 IN	PTR	forwardingdomain.xyz.
+; <<>> DiG 9.16.1-Ubuntu <<>> -4 -x 192.168.7.72

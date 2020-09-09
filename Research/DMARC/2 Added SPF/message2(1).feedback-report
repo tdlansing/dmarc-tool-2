@@ -1,0 +1,9 @@
+Feedback-Type: auth-failure
+Version: 1
+User-Agent: OpenDMARC-Filter/1.3.2
+Auth-Failure: dmarc
+Authentication-Results: OpenDMARC; dmarc=fail header.from=domaintoprotect.xyz
+Original-Envelope-Id: 1A299120ED3
+Original-Mail-From: administrator@domaintoprotect.xyz
+Source-IP: 192.168.7.72 ([192.168.7.72])
+Reported-Domain: domaintoprotect.xyz

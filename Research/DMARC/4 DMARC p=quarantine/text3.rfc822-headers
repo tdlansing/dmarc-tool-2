@@ -1,0 +1,12 @@
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id A9D69121298
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 14:58:06 -0500 (CDT)
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 0)
+	id 9B64914144F; Sun, 30 Aug 2020 19:58:06 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: DMARC p=quarantine, From Spoofer2
+To: <bob@forwardingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200830195806.9B64914144F@mail.domaintoprotect.xyz>
+Date: Sun, 30 Aug 2020 19:58:06 +0000 (UTC)

@@ -1,0 +1,83 @@
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.120; helo=mail.accountsreceivable.domaintoprotect.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.accountsreceivable.domaintoprotect.xyz (accountsreceivable.domaintoprotect.xyz [192.168.7.120])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id E29BF120EE6
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 12:23:13 -0500 (CDT)
+Received: from [192.168.7.120] (localhost [127.0.0.1])
+	by mail.accountsreceivable.domaintoprotect.xyz (Postfix) with ESMTPA id A10EB1011AF
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 12:23:13 -0500 (CDT)
+MIME-Version: 1.0
+Date: Sun, 09 Aug 2020 17:23:13 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_661_345290060.1596993793"
+X-Mailer: RainLoop/1.12.0
+From: jane@accountsreceivable.domaintoprotect.xyz
+Message-ID: <90a6e70b3d7b6566b3d8b33ddbfab04f@accountsreceivable.domaintoprotect.xyz>
+Subject: From Jane; Added DMARC p=none
+To: bob@receivingdomain.xyz
+
+
+----=_RainLoop_661_345290060.1596993793
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added DMARC p=none
+
+----=_RainLoop_661_345290060.1596993793
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded DMARC p=none<br><signature></signature></div></body></html>
+
+----=_RainLoop_661_345290060.1596993793--
+
+
+
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 351B1120EE6
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 12:24:04 -0500 (CDT)
+Received: from mail.accountsreceivable.domaintoprotect.xyz (accountsreceivable.domaintoprotect.xyz [192.168.7.120])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id 2CC45121117
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 12:24:04 -0500 (CDT)
+Received: from [192.168.7.120] (localhost [127.0.0.1])
+	by mail.accountsreceivable.domaintoprotect.xyz (Postfix) with ESMTPA id 0CC2C1011AE
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 12:24:04 -0500 (CDT)
+MIME-Version: 1.0
+Date: Sun, 09 Aug 2020 17:24:04 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_730_371527490.1596993844"
+X-Mailer: RainLoop/1.12.0
+From: jane@accountsreceivable.domaintoprotect.xyz
+Message-ID: <39b890e07f5840f35797d857781c2349@accountsreceivable.domaintoprotect.xyz>
+Subject: From Jane; Added DMARC p=none
+To: bob@forwardingdomain.xyz
+
+
+----=_RainLoop_730_371527490.1596993844
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added DMARC p=none
+
+----=_RainLoop_730_371527490.1596993844
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded DMARC p=none</div></body></html>
+
+----=_RainLoop_730_371527490.1596993844--
+

@@ -1,0 +1,18 @@
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.110; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id CBB6C120EFC
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 12:55:11 -0500 (CDT)
+MIME-Version: 1.0
+Date: Sun, 09 Aug 2020 17:55:11 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_503_322942894.1596995711"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <168809f9c60cb75965e3ca85a1469042@domaintoprotect.xyz>
+Subject: Re: From Admin; Added DMARC
+To: bob@receivingdomain.xyz
+In-Reply-To: <d2783c0814956430b50ab372a287d635@domaintoprotect.xyz>
+References: <d2783c0814956430b50ab372a287d635@domaintoprotect.xyz>
+ <6204360f0470c5e5ce5b5a600ba155e5@domaintoprotect.xyz>
+ <715769f59bab7867cf007a71424b84de@domaintoprotect.xyz>
+ <5b4f5c3e0eefee4f1d5e8a38e02fb77b@domaintoprotect.xyz>

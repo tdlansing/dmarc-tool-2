@@ -1,0 +1,165 @@
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=192.168.7.110; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=pass (p=none dis=none) header.from=domaintoprotect.xyz
+Authentication-Results: mail.receivingdomain.xyz;
+	dkim=pass (2048-bit key; unprotected) header.d=domaintoprotect.xyz header.i=@domaintoprotect.xyz header.a=rsa-sha256 header.s=default header.b=clJtW4fy;
+	dkim-atps=neutral
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 8007912113A
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 12:39:25 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id 033E6120EE4
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 12:31:50 -0500 (CDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=domaintoprotect.xyz;
+	s=default; t=1598808710;
+	bh=BrVOpDzgcxnZR/zfW9jjvzj3yCarMTssTLW7kdgSu5o=;
+	h=Date:From:Subject:To:In-Reply-To:References:From;
+	b=clJtW4fynijZl4GYV6fGLlTP0EeAlVaCxKVf7UCIF7I/Wl+9RvDywuYRpapTKmPyB
+	 Rhv8XmsrDvPHb8/ltGI1pLAtPra+5b0Ixc2VZQvlook5X2/v4lpDL9m/GGgAGS+FMb
+	 HTxFJW7rMBDE2F12OsEI7YrBnunSHYkgWz15Z6arjnYh2+ixhpR4CAYJT5WIvpzwL5
+	 jj9ktVyRJpcc1kN8JKGOHvgyt1/tDoCYAXZMPqj0YVQz4jDQWATDpPgIHEdvhinE4y
+	 TfBIslKO4ClEl0/GONb9oQ+JzxLV9jUShORrtBRuS/kIcGgm5kuKf2u89pR/dQrOC+
+	 FrCSikzWqT1+A==
+MIME-Version: 1.0
+Date: Sun, 30 Aug 2020 17:31:49 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_531_260858464.1598808709"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <9b5668e621660adaa4c1093b5286725b@domaintoprotect.xyz>
+Subject: From Admin; Added DKIM
+To: bob@receivingdomain.xyz
+In-Reply-To: <8e6ba5ba8e5ab8360fadb4f11475ab44@domaintoprotect.xyz>
+References: <8e6ba5ba8e5ab8360fadb4f11475ab44@domaintoprotect.xyz>
+ <168809f9c60cb75965e3ca85a1469042@domaintoprotect.xyz>
+ <d2783c0814956430b50ab372a287d635@domaintoprotect.xyz>
+ <6204360f0470c5e5ce5b5a600ba155e5@domaintoprotect.xyz>
+ <715769f59bab7867cf007a71424b84de@domaintoprotect.xyz>
+ <5b4f5c3e0eefee4f1d5e8a38e02fb77b@domaintoprotect.xyz>
+
+
+----=_RainLoop_531_260858464.1598808709
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added DKIM.
+
+----=_RainLoop_531_260858464.1598808709
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded DKIM.</div></body></html>
+
+----=_RainLoop_531_260858464.1598808709--
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=pass (p=none dis=none) header.from=domaintoprotect.xyz
+Authentication-Results: mail.receivingdomain.xyz;
+	dkim=pass (2048-bit key; unprotected) header.d=domaintoprotect.xyz header.i=@domaintoprotect.xyz header.a=rsa-sha256 header.s=default header.b=nIpC82ca;
+	dkim-atps=neutral
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id A4FB312113A
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 12:39:25 -0500 (CDT)
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id 6D029121297
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 12:39:25 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id D6DDC120EF9
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 12:33:00 -0500 (CDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=domaintoprotect.xyz;
+	s=default; t=1598808780;
+	bh=xoWRormAlUEp+L8r6FEXEQ2GHgpAddlbKEtm+bO4Fqw=;
+	h=Date:From:Subject:To:In-Reply-To:References:From;
+	b=nIpC82caVuYTESQqPppKanqYKPvXaf7AY9PKbQt5kyxY3J6xfnfSpfdYj04ZObS01
+	 +ncwdHFox+cSFQVLm6PrsLR5NuQa3Ng/0e950zeOQpFffujga8D6W1qgOk9/uIlcHf
+	 Rq52cHjUWYepMYvtaGLt/IAqAngtgm55m/3PbtZ1350XoPrznq9U723HKPpUq3OJyu
+	 BlWDwDhyyJ34QLHNRHmi+Ti7xEFYdorDUHRIcNbLoLjKeSxVApHzTibP0QbrGcOw6i
+	 S6F5F8PmHfWHuFTYoFrd74BteUMIGCM7ac0e0/xMod5HCtzaj5IOIxVYgHokN1eFH7
+	 pozu0sVgiEhiw==
+MIME-Version: 1.0
+Date: Sun, 30 Aug 2020 17:33:00 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_608_848324696.1598808780"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <313160e748b7e0346dea15a93002f531@domaintoprotect.xyz>
+Subject: From Admin; Added DKIM
+To: bob@forwardingdomain.xyz
+In-Reply-To: <ea4fe0d32ca114c35c7e251aafb6ba89@domaintoprotect.xyz>
+References: <ea4fe0d32ca114c35c7e251aafb6ba89@domaintoprotect.xyz>
+ <6741905334b0c43335d864ce5a431b16@domaintoprotect.xyz>
+ <a8255e516d46d69a55e79e9d47c60cd0@domaintoprotect.xyz>
+
+
+----=_RainLoop_608_848324696.1598808780
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added DKIM.
+
+----=_RainLoop_608_848324696.1598808780
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded DKIM.<br><signature></signature></div></body></htm=
+l>
+
+----=_RainLoop_608_848324696.1598808780--
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.72; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=domaintoprotect.xyz
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 396A512113A
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 12:44:56 -0500 (CDT)
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 0)
+	id B4EB814144F; Sun, 30 Aug 2020 17:44:55 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: Added DKIM, From Spoofer
+To: <bob@receivingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200830174455.B4EB814144F@mail.domaintoprotect.xyz>
+Date: Sun, 30 Aug 2020 17:44:55 +0000 (UTC)
+
+This is an email from a spoofer impersonating administrator@domaintoprotect.xyz. Post setting up DKIM.
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 4767112113A
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 12:45:06 -0500 (CDT)
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id 3D31A121297
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 12:45:06 -0500 (CDT)
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 0)
+	id 2299214144F; Sun, 30 Aug 2020 17:45:06 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: Added DKIM, From Spoofer
+To: <bob@forwardingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200830174506.2299214144F@mail.domaintoprotect.xyz>
+Date: Sun, 30 Aug 2020 17:45:06 +0000 (UTC)
+
+This is an email from a spoofer impersonating administrator@domaintoprotect.xyz. Post setting up DKIM.

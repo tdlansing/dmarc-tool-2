@@ -1,0 +1,130 @@
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.110; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=domaintoprotect.xyz
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 81DC7120EE6
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 12:19:27 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id 3FF6C120EF6
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 12:19:27 -0500 (CDT)
+MIME-Version: 1.0
+Date: Sun, 09 Aug 2020 17:19:27 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_572_413709743.1596993567"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <6204360f0470c5e5ce5b5a600ba155e5@domaintoprotect.xyz>
+Subject: From Admin; Added DMARC p=none
+To: bob@receivingdomain.xyz
+In-Reply-To: <715769f59bab7867cf007a71424b84de@domaintoprotect.xyz>
+References: <715769f59bab7867cf007a71424b84de@domaintoprotect.xyz>
+ <5b4f5c3e0eefee4f1d5e8a38e02fb77b@domaintoprotect.xyz>
+
+
+----=_RainLoop_572_413709743.1596993567
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added DMARC p=none
+
+----=_RainLoop_572_413709743.1596993567
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded DMARC p=none<br><signature></signature></div></body></html>
+
+----=_RainLoop_572_413709743.1596993567--
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id E520B120EE6
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 12:19:39 -0500 (CDT)
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id D9C11121117
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 12:19:39 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id C3934120EF6
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 12:19:39 -0500 (CDT)
+MIME-Version: 1.0
+Date: Sun, 09 Aug 2020 17:19:39 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_857_875231369.1596993579"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <a8255e516d46d69a55e79e9d47c60cd0@domaintoprotect.xyz>
+Subject: From Admin; Added DMARC p=none
+To: bob@forwardingdomain.xyz
+
+
+----=_RainLoop_857_875231369.1596993579
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added DMARC p=none
+
+----=_RainLoop_857_875231369.1596993579
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded DMARC p=none<br><signature></signature></div></body></html>
+
+----=_RainLoop_857_875231369.1596993579--
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.72; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=domaintoprotect.xyz
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 73D39120EE6
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 12:34:11 -0500 (CDT)
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 0)
+	id 6E82914143B; Sun,  9 Aug 2020 17:34:11 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: Added DMARC p=none, From Spoofer
+To: <bob@receivingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200809173411.6E82914143B@mail.domaintoprotect.xyz>
+Date: Sun,  9 Aug 2020 17:34:11 +0000 (UTC)
+
+This is an email from a spoofer impersonating administrator@domaintoprotect.xyz. Post setting up DMARC p=none.
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 8B5FF120EE6
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 12:34:02 -0500 (CDT)
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id 55343121117
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 12:34:02 -0500 (CDT)
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 0)
+	id 4243E14143B; Sun,  9 Aug 2020 17:34:02 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: Added DMARC p=none, From Spoofer
+To: <bob@forwardingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200809173402.4243E14143B@mail.domaintoprotect.xyz>
+Date: Sun,  9 Aug 2020 17:34:02 +0000 (UTC)
+
+This is an email from a spoofer impersonating administrator@domaintoprotect.xyz. Post setting up DMARC p=none.

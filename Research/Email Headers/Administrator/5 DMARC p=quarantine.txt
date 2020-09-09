@@ -1,0 +1,169 @@
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=192.168.7.110; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=pass (p=quarantine dis=none) header.from=domaintoprotect.xyz
+Authentication-Results: mail.receivingdomain.xyz;
+	dkim=pass (2048-bit key; unprotected) header.d=domaintoprotect.xyz header.i=@domaintoprotect.xyz header.a=rsa-sha256 header.s=default header.b=aD5BJH7G;
+	dkim-atps=neutral
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 225D71210B1
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 14:39:02 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id CEE7F120EF5
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 14:39:02 -0500 (CDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=domaintoprotect.xyz;
+	s=default; t=1598816342;
+	bh=PrLk4dnwEI7EukxwguXGnk9l3pDT1jmbyDkNcU/3Ips=;
+	h=Date:From:Subject:To:In-Reply-To:References:From;
+	b=aD5BJH7G9q7jnm3IYBpcMtfTvX0P8pfS9I4mf6FB+jelcXsNc9GI53BcB1DKt3135
+	 5fy2hOH2v+qwi1vgOQJm8xp85M5EZUGRZQL6b8utL4s62rgOp6VzohZsoa/1vQ+giL
+	 P6Bfs1KAH7xYddWE52OyM2u/F9VszYizuUy82qvwFRAJOjHg1nrN3VvqnmlGzkkHw7
+	 M9UCuqUJ4tP4K4FwqqttEw9esdgUaHZyXfendixxkZ2n69kDG9I2aGj7+QcgugKMHv
+	 eDCEapfKhlrkiNBwOobX+JeNHTWRn1hHd4Vo/5VZcC1soNHxtjhmLQJN07jZ2vOIuu
+	 xQnFvlQcvY3DA==
+MIME-Version: 1.0
+Date: Sun, 30 Aug 2020 19:39:02 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_533_984268940.1598816342"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <2bb0c78b40249305f529c69363d37c5b@domaintoprotect.xyz>
+Subject: From Admin; DMARC p=quarantine
+To: bob@receivingdomain.xyz
+In-Reply-To: <9b5668e621660adaa4c1093b5286725b@domaintoprotect.xyz>
+References: <9b5668e621660adaa4c1093b5286725b@domaintoprotect.xyz>
+ <8e6ba5ba8e5ab8360fadb4f11475ab44@domaintoprotect.xyz>
+ <168809f9c60cb75965e3ca85a1469042@domaintoprotect.xyz>
+ <d2783c0814956430b50ab372a287d635@domaintoprotect.xyz>
+ <6204360f0470c5e5ce5b5a600ba155e5@domaintoprotect.xyz>
+ <715769f59bab7867cf007a71424b84de@domaintoprotect.xyz>
+ <5b4f5c3e0eefee4f1d5e8a38e02fb77b@domaintoprotect.xyz>
+
+
+----=_RainLoop_533_984268940.1598816342
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+DMARC p=3Dquarantine
+
+----=_RainLoop_533_984268940.1598816342
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">D=
+MARC p=3Dquarantine<br><signature></signature></div></body></html>
+
+----=_RainLoop_533_984268940.1598816342--
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=pass (p=quarantine dis=none) header.from=domaintoprotect.xyz
+Authentication-Results: mail.receivingdomain.xyz;
+	dkim=pass (2048-bit key; unprotected) header.d=domaintoprotect.xyz header.i=@domaintoprotect.xyz header.a=rsa-sha256 header.s=default header.b=AwdXLHx/;
+	dkim-atps=neutral
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id EBB311210B1
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 14:39:23 -0500 (CDT)
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id D6F85121298
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 14:39:23 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id B914B120EF5
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 14:39:23 -0500 (CDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=domaintoprotect.xyz;
+	s=default; t=1598816363;
+	bh=FSnj6Bs/e6H92dbiOjgXi+R8YyfXjfJzdaq6gFSMGe4=;
+	h=Date:From:Subject:To:In-Reply-To:References:From;
+	b=AwdXLHx/KK7CkWQYn1Ot0SR1CvltrPR3Hpfj+qJtkTnnRBGN7nIfzsyftmEVIcNPa
+	 fzQWPY4FKFu3gv3vezppfl4Kb1adoeO0RuIblv+FjQn3/i/bpe3fAAgU26IfRK1LJr
+	 bjlnXmgSU8zkZNrxP4a/Ic1bDQHKo+5h481JcIQ0qzQ2QIPDl5Y9aWAOYGYQiW4774
+	 wMyX8rFy0GJWPWFiL3t9Zu3578PZhIZChxt/KftBB5og838Eahx4TYPJJvmtVAbmtJ
+	 ytwWgJNbCB31h9EfIA5NbwFb2knx1qmXXZVKOM2NJIl8dAec2GxlWdFoblLIUCIar7
+	 b5EJaIQ7P2KqQ==
+MIME-Version: 1.0
+Date: Sun, 30 Aug 2020 19:39:23 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_501_505456588.1598816363"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <2fb9cd6c9949786d55e1b18f07b9c4b8@domaintoprotect.xyz>
+Subject: From Admin; DMARC p=quarantine
+To: bob@forwardingdomain.xyz
+In-Reply-To: <313160e748b7e0346dea15a93002f531@domaintoprotect.xyz>
+References: <313160e748b7e0346dea15a93002f531@domaintoprotect.xyz>
+ <ea4fe0d32ca114c35c7e251aafb6ba89@domaintoprotect.xyz>
+ <6741905334b0c43335d864ce5a431b16@domaintoprotect.xyz>
+ <a8255e516d46d69a55e79e9d47c60cd0@domaintoprotect.xyz>
+
+
+----=_RainLoop_501_505456588.1598816363
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+DMARC p=3Dquarantine
+
+----=_RainLoop_501_505456588.1598816363
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">D=
+MARC p=3Dquarantine</div></body></html>
+
+----=_RainLoop_501_505456588.1598816363--
+
+
+
+
+THE FOLLOWING TWO EMAILS WERE PLACED IN THE HOLD QUEUE BY POSTFIX TO BE REVIEWED. THEY WERE RELEASED TO GATHER THE HEADERS, BUT COULD AS EASILY BEEN REVIEWED AS SUSPICIOUS AND DELETED.
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.72; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=fail (p=quarantine dis=quarantine) header.from=domaintoprotect.xyz
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id C7C93120EE7
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 14:58:02 -0500 (CDT)
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 0)
+	id 7767A14144F; Sun, 30 Aug 2020 19:58:02 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: DMARC p=quarantine, From Spoofer
+To: <bob@receivingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200830195802.7767A14144F@mail.domaintoprotect.xyz>
+Date: Sun, 30 Aug 2020 19:58:02 +0000 (UTC)
+
+This is an email from a spoofer impersonating administrator@domaintoprotect.xyz. DMARC p=quarantine.
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=fail (p=quarantine dis=quarantine) header.from=domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id BD14012113A
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 14:58:06 -0500 (CDT)
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id A9D69121298
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 14:58:06 -0500 (CDT)
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 0)
+	id 9B64914144F; Sun, 30 Aug 2020 19:58:06 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: DMARC p=quarantine, From Spoofer
+To: <bob@forwardingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200830195806.9B64914144F@mail.domaintoprotect.xyz>
+Date: Sun, 30 Aug 2020 19:58:06 +0000 (UTC)
+
+This is an email from a spoofer impersonating administrator@domaintoprotect.xyz. DMARC p=quarantine.

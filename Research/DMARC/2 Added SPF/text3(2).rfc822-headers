@@ -1,0 +1,21 @@
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id A17EF121117
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 19:08:18 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id 690F0120F18
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 19:08:18 -0500 (CDT)
+MIME-Version: 1.0
+Date: Mon, 10 Aug 2020 00:08:18 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_454_761643590.1597018098"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <1dca1116989a7e097a868fcd3a7959c5@domaintoprotect.xyz>
+Subject: From Admin; Added SPF
+To: bob@forwardingdomain.xyz
+In-Reply-To: <5519cee185807c39038b6c3010a61246@domaintoprotect.xyz>
+References: <5519cee185807c39038b6c3010a61246@domaintoprotect.xyz>
+ <ea4fe0d32ca114c35c7e251aafb6ba89@domaintoprotect.xyz>
+ <6741905334b0c43335d864ce5a431b16@domaintoprotect.xyz>
+ <a8255e516d46d69a55e79e9d47c60cd0@domaintoprotect.xyz>

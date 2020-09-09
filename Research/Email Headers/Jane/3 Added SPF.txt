@@ -1,0 +1,91 @@
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.120; helo=mail.accountsreceivable.domaintoprotect.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.accountsreceivable.domaintoprotect.xyz (accountsreceivable.domaintoprotect.xyz [192.168.7.120])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 067E6120ED3
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 19:08:46 -0500 (CDT)
+Received: from [192.168.7.120] (localhost [127.0.0.1])
+	by mail.accountsreceivable.domaintoprotect.xyz (Postfix) with ESMTPA id F09A7101111
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 19:08:45 -0500 (CDT)
+MIME-Version: 1.0
+Date: Mon, 10 Aug 2020 00:08:45 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_444_862081792.1597018125"
+X-Mailer: RainLoop/1.12.0
+From: jane@accountsreceivable.domaintoprotect.xyz
+Message-ID: <76c24272007fd3539fcaa5e2bd2f2413@accountsreceivable.domaintoprotect.xyz>
+Subject: From Jane; Added SPF
+To: bob@receivingdomain.xyz
+In-Reply-To: <12649472c37ec87c168aa425c8bc1f07@accountsreceivable.domaintoprotect.xyz>
+References: <12649472c37ec87c168aa425c8bc1f07@accountsreceivable.domaintoprotect.xyz>
+ <3a91fccf9d1ebb6b2d0c7db45859ac81@accountsreceivable.domaintoprotect.xyz>
+ <90a6e70b3d7b6566b3d8b33ddbfab04f@accountsreceivable.domaintoprotect.xyz>
+
+
+----=_RainLoop_444_862081792.1597018125
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added SPF
+
+----=_RainLoop_444_862081792.1597018125
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded SPF<br><signature></signature></div></body></html>
+
+----=_RainLoop_444_862081792.1597018125--
+
+
+
+
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 8FB02120ED3
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 19:08:58 -0500 (CDT)
+Received: from mail.accountsreceivable.domaintoprotect.xyz (accountsreceivable.domaintoprotect.xyz [192.168.7.120])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id 8D105121298
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 19:08:58 -0500 (CDT)
+Received: from [192.168.7.120] (localhost [127.0.0.1])
+	by mail.accountsreceivable.domaintoprotect.xyz (Postfix) with ESMTPA id 8711E101111
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 19:08:58 -0500 (CDT)
+MIME-Version: 1.0
+Date: Mon, 10 Aug 2020 00:08:58 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_281_866670362.1597018138"
+X-Mailer: RainLoop/1.12.0
+From: jane@accountsreceivable.domaintoprotect.xyz
+Message-ID: <10f4ecc4bdd0a6fcaeba03ba975965dc@accountsreceivable.domaintoprotect.xyz>
+Subject: From Jane; Added SPF
+To: bob@forwardingdomain.xyz
+In-Reply-To: <5fc2ad0955ab210d85006a967f252b44@accountsreceivable.domaintoprotect.xyz>
+References: <5fc2ad0955ab210d85006a967f252b44@accountsreceivable.domaintoprotect.xyz>
+ <ef0fc4590bd1a210ccd2c0cd2635de17@accountsreceivable.domaintoprotect.xyz>
+ <39b890e07f5840f35797d857781c2349@accountsreceivable.domaintoprotect.xyz>
+
+
+----=_RainLoop_281_866670362.1597018138
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added SPF
+
+----=_RainLoop_281_866670362.1597018138
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded SPF</div></body></html>
+
+----=_RainLoop_281_866670362.1597018138--

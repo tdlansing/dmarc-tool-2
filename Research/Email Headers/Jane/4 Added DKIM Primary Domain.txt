@@ -1,0 +1,141 @@
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.120; helo=mail.accountsreceivable.domaintoprotect.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.accountsreceivable.domaintoprotect.xyz (accountsreceivable.domaintoprotect.xyz [192.168.7.120])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 29D5912113A
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 12:40:29 -0500 (CDT)
+Received: from [192.168.7.120] (localhost [127.0.0.1])
+	by mail.accountsreceivable.domaintoprotect.xyz (Postfix) with ESMTPA id 1DC991011AE
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 12:40:29 -0500 (CDT)
+MIME-Version: 1.0
+Date: Sun, 30 Aug 2020 17:40:29 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_500_931134664.1598809229"
+X-Mailer: RainLoop/1.12.0
+From: jane@accountsreceivable.domaintoprotect.xyz
+Message-ID: <6cca1fce4f942f978aa9b16fd7a4bfeb@accountsreceivable.domaintoprotect.xyz>
+Subject: From Jane; Added DKIM Primary Domain
+To: bob@receivingdomain.xyz
+In-Reply-To: <76c24272007fd3539fcaa5e2bd2f2413@accountsreceivable.domaintoprotect.xyz>
+References: <76c24272007fd3539fcaa5e2bd2f2413@accountsreceivable.domaintoprotect.xyz>
+ <12649472c37ec87c168aa425c8bc1f07@accountsreceivable.domaintoprotect.xyz>
+ <3a91fccf9d1ebb6b2d0c7db45859ac81@accountsreceivable.domaintoprotect.xyz>
+ <90a6e70b3d7b6566b3d8b33ddbfab04f@accountsreceivable.domaintoprotect.xyz>
+
+
+----=_RainLoop_500_931134664.1598809229
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added DKIM to primary domain.
+
+----=_RainLoop_500_931134664.1598809229
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded DKIM to primary domain.<br><br><signature></signature></div></body><=
+/html>
+
+----=_RainLoop_500_931134664.1598809229--
+
+
+
+
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 508EB12113A
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 12:40:50 -0500 (CDT)
+Received: from mail.accountsreceivable.domaintoprotect.xyz (accountsreceivable.domaintoprotect.xyz [192.168.7.120])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id 4ADA9121297
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 12:40:50 -0500 (CDT)
+Received: from [192.168.7.120] (localhost [127.0.0.1])
+	by mail.accountsreceivable.domaintoprotect.xyz (Postfix) with ESMTPA id 3A3111011AE
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 12:40:50 -0500 (CDT)
+MIME-Version: 1.0
+Date: Sun, 30 Aug 2020 17:40:50 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_997_494602933.1598809250"
+X-Mailer: RainLoop/1.12.0
+From: jane@accountsreceivable.domaintoprotect.xyz
+Message-ID: <d0a638b6cf103f7b65a4d51d700b4362@accountsreceivable.domaintoprotect.xyz>
+Subject: From Jane; Added DKIM Primary Domain
+To: bob@forwardingdomain.xyz
+In-Reply-To: <10f4ecc4bdd0a6fcaeba03ba975965dc@accountsreceivable.domaintoprotect.xyz>
+References: <10f4ecc4bdd0a6fcaeba03ba975965dc@accountsreceivable.domaintoprotect.xyz>
+ <5fc2ad0955ab210d85006a967f252b44@accountsreceivable.domaintoprotect.xyz>
+ <ef0fc4590bd1a210ccd2c0cd2635de17@accountsreceivable.domaintoprotect.xyz>
+ <39b890e07f5840f35797d857781c2349@accountsreceivable.domaintoprotect.xyz>
+
+
+----=_RainLoop_997_494602933.1598809250
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added DKIM to primary domain.
+
+----=_RainLoop_997_494602933.1598809250
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded DKIM to primary domain.<br> </div></body></html>
+
+----=_RainLoop_997_494602933.1598809250--
+
+
+
+
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.72; helo=mail.accountsreceivable.domaintoprotect.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.accountsreceivable.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id AA11612113A
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 12:56:05 -0500 (CDT)
+Received: by mail.accountsreceivable.domaintoprotect.xyz (Postfix, from userid 0)
+	id 558E814144F; Sun, 30 Aug 2020 17:56:05 +0000 (UTC)
+From: jane@accountsreceivable.domaintoprotect.xyz
+Subject: Added DKIM Primary Domain, From Spoofer
+To: <bob@receivingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200830175605.558E814144F@mail.accountsreceivable.domaintoprotect.xyz>
+Date: Sun, 30 Aug 2020 17:56:05 +0000 (UTC)
+
+This is an email from a spoofer impersonating jane@accountsreceivable.domaintoprotect.xyz. Post setting up DKIM on primary domain.
+
+
+
+
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 74BA112113A
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 12:56:16 -0500 (CDT)
+Received: from mail.accountsreceivable.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id 6AE7C121298
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 12:56:16 -0500 (CDT)
+Received: by mail.accountsreceivable.domaintoprotect.xyz (Postfix, from userid 0)
+	id 588B214144F; Sun, 30 Aug 2020 17:56:16 +0000 (UTC)
+From: jane@accountsreceivable.domaintoprotect.xyz
+Subject: Added DKIM Primary Domain, From Spoofer
+To: <bob@forwardingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200830175616.588B214144F@mail.accountsreceivable.domaintoprotect.xyz>
+Date: Sun, 30 Aug 2020 17:56:16 +0000 (UTC)
+
+This is an email from a spoofer impersonating jane@accountsreceivable.domaintoprotect.xyz. Post setting up DKIM on primary domain.

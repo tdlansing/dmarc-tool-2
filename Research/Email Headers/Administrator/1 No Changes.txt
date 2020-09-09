@@ -1,0 +1,125 @@
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.110])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 441A1120ED9
+	for <bob@receivingdomain.xyz>; Sat,  8 Aug 2020 14:38:07 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id F3248120EE6
+	for <bob@receivingdomain.xyz>; Sat,  8 Aug 2020 14:38:06 -0500 (CDT)
+MIME-Version: 1.0
+Date: Sat, 08 Aug 2020 19:38:06 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_363_802713223.1596915486"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <5b4f5c3e0eefee4f1d5e8a38e02fb77b@domaintoprotect.xyz>
+Subject: From Admin; No Changes
+To: bob@receivingdomain.xyz
+
+
+----=_RainLoop_363_802713223.1596915486
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Email before any changes are made.
+
+----=_RainLoop_363_802713223.1596915486
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">E=
+mail before any changes are made.<br><signature></signature></div></body>=
+</html>
+
+----=_RainLoop_363_802713223.1596915486--
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received: from mail.forwardingdomain.xyz (unknown [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 00AEB120ED9
+	for <bob@receivingdomain.xyz>; Sat,  8 Aug 2020 14:38:32 -0500 (CDT)
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id E0449121117
+	for <bob@forwardingdomain.xyz>; Sat,  8 Aug 2020 14:38:31 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id AD1BE120EE6
+	for <bob@forwardingdomain.xyz>; Sat,  8 Aug 2020 14:38:31 -0500 (CDT)
+MIME-Version: 1.0
+Date: Sat, 08 Aug 2020 19:38:31 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_651_313393645.1596915511"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <635ab753ebc7448923e047bbda6694b2@domaintoprotect.xyz>
+Subject: From Admin; No Changes
+To: bob@forwardingdomain.xyz
+
+
+----=_RainLoop_651_313393645.1596915511
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Email before any changes are made.
+
+----=_RainLoop_651_313393645.1596915511
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">E=
+mail before any changes are made.<br><signature></signature></div></body>=
+</html>
+
+----=_RainLoop_651_313393645.1596915511--
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received: from mail.forwardingdomain.xyz (unknown [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 2B0D2120ED9
+	for <bob@receivingdomain.xyz>; Sat,  8 Aug 2020 17:59:41 -0500 (CDT)
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id 198AB120EB5
+	for <bob@forwardingdomain.xyz>; Sat,  8 Aug 2020 17:59:41 -0500 (CDT)
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 1001)
+	id 0F699141450; Sat,  8 Aug 2020 22:59:41 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: No Changes, From Spoofer
+To: <bob@forwardingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200808225941.0F699141450@mail.domaintoprotect.xyz>
+Date: Sat,  8 Aug 2020 22:59:41 +0000 (UTC)
+
+This is an email from a spoofer impersonating administrator@domaintoprotect.xyz.
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 120D0120ED9
+	for <bob@receivingdomain.xyz>; Sat,  8 Aug 2020 17:58:22 -0500 (CDT)
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 1001)
+	id E2E03141450; Sat,  8 Aug 2020 22:58:21 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: No Changes, From Spoofer
+To: <bob@receivingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200808225821.E2E03141450@mail.domaintoprotect.xyz>
+Date: Sat,  8 Aug 2020 22:58:21 +0000 (UTC)
+
+This is an email from a spoofer impersonating administrator@domaintoprotect.xyz.
+
+
+
+

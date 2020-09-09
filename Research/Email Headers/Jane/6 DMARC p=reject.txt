@@ -1,0 +1,140 @@
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.120; helo=mail.accountsreceivable.domaintoprotect.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.accountsreceivable.domaintoprotect.xyz (accountsreceivable.domaintoprotect.xyz [192.168.7.120])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 0BB88120EE7
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 16:37:30 -0500 (CDT)
+Received: from [192.168.7.120] (localhost [127.0.0.1])
+	by mail.accountsreceivable.domaintoprotect.xyz (Postfix) with ESMTPA id F337B10117C
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 16:37:29 -0500 (CDT)
+MIME-Version: 1.0
+Date: Sun, 30 Aug 2020 21:37:29 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_672_913778812.1598823449"
+X-Mailer: RainLoop/1.12.0
+From: jane@accountsreceivable.domaintoprotect.xyz
+Message-ID: <383f0974aa2902044e37d249693c5d3e@accountsreceivable.domaintoprotect.xyz>
+Subject: From Jane; DMARC p=reject on Primary Domain
+To: bob@receivingdomain.xyz
+In-Reply-To: <395f35e54098059318b9be9c659789bc@accountsreceivable.domaintoprotect.xyz>
+References: <395f35e54098059318b9be9c659789bc@accountsreceivable.domaintoprotect.xyz>
+ <76c24272007fd3539fcaa5e2bd2f2413@accountsreceivable.domaintoprotect.xyz>
+ <12649472c37ec87c168aa425c8bc1f07@accountsreceivable.domaintoprotect.xyz>
+ <3a91fccf9d1ebb6b2d0c7db45859ac81@accountsreceivable.domaintoprotect.xyz>
+ <90a6e70b3d7b6566b3d8b33ddbfab04f@accountsreceivable.domaintoprotect.xyz>
+
+
+----=_RainLoop_672_913778812.1598823449
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+DMARC p=3Dreject on Primary Domain
+
+----=_RainLoop_672_913778812.1598823449
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">D=
+MARC p=3Dreject on Primary Domain<br><signature></signature></div></body></html>
+
+----=_RainLoop_672_913778812.1598823449--
+
+
+
+
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 5582C120EE7
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 16:37:43 -0500 (CDT)
+Received: from mail.accountsreceivable.domaintoprotect.xyz (accountsreceivable.domaintoprotect.xyz [192.168.7.120])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id 4EC7A121298
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 16:37:43 -0500 (CDT)
+Received: from [192.168.7.120] (localhost [127.0.0.1])
+	by mail.accountsreceivable.domaintoprotect.xyz (Postfix) with ESMTPA id 4A05210117C
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 16:37:43 -0500 (CDT)
+MIME-Version: 1.0
+Date: Sun, 30 Aug 2020 21:37:43 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_120_231900516.1598823463"
+X-Mailer: RainLoop/1.12.0
+From: jane@accountsreceivable.domaintoprotect.xyz
+Message-ID: <b1d74318cb64209fad0df7b9c16904f9@accountsreceivable.domaintoprotect.xyz>
+Subject: From Jane; DMARC p=reject on Primary Domain
+To: bob@forwardingdomain.xyz
+In-Reply-To: <5324605455a75a6a75ef3940289fd548@accountsreceivable.domaintoprotect.xyz>
+References: <5324605455a75a6a75ef3940289fd548@accountsreceivable.domaintoprotect.xyz>
+ <10f4ecc4bdd0a6fcaeba03ba975965dc@accountsreceivable.domaintoprotect.xyz>
+ <5fc2ad0955ab210d85006a967f252b44@accountsreceivable.domaintoprotect.xyz>
+ <ef0fc4590bd1a210ccd2c0cd2635de17@accountsreceivable.domaintoprotect.xyz>
+ <39b890e07f5840f35797d857781c2349@accountsreceivable.domaintoprotect.xyz>
+
+
+----=_RainLoop_120_231900516.1598823463
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+DMARC p=3Dreject on Primary Domain
+
+----=_RainLoop_120_231900516.1598823463
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">D=
+MARC p=3Dreject on Primary Domain<br><br><signature></signature></div></body></html>
+
+----=_RainLoop_120_231900516.1598823463--
+
+
+
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.72; helo=mail.accountsreceivable.domaintoprotect.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.accountsreceivable.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 0FA2F1210B1
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 16:46:07 -0500 (CDT)
+Received: by mail.accountsreceivable.domaintoprotect.xyz (Postfix, from userid 0)
+	id B6B0514144F; Sun, 30 Aug 2020 21:46:07 +0000 (UTC)
+From: jane@accountsreceivable.domaintoprotect.xyz
+Subject: DMARC p=reject on Primary Domain, From Spoofer
+To: <bob@receivingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200830214607.B6B0514144F@mail.accountsreceivable.domaintoprotect.xyz>
+Date: Sun, 30 Aug 2020 21:46:07 +0000 (UTC)
+
+This is an email from a spoofer impersonating jane@accountsreceivable.domaintoprotect.xyz. DMARC p=reject on Primary Domain.
+
+
+
+Return-Path: <jane@accountsreceivable.domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=jane@accountsreceivable.domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=accountsreceivable.domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 72ECB1210B1
+	for <bob@receivingdomain.xyz>; Sun, 30 Aug 2020 16:46:19 -0500 (CDT)
+Received: from mail.accountsreceivable.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id 6C04C121298
+	for <bob@forwardingdomain.xyz>; Sun, 30 Aug 2020 16:46:19 -0500 (CDT)
+Received: by mail.accountsreceivable.domaintoprotect.xyz (Postfix, from userid 0)
+	id 54C5214144F; Sun, 30 Aug 2020 21:46:19 +0000 (UTC)
+From: jane@accountsreceivable.domaintoprotect.xyz
+Subject: DMARC p=reject on Primary Domain, From Spoofer
+To: <bob@forwardingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200830214619.54C5214144F@mail.accountsreceivable.domaintoprotect.xyz>
+Date: Sun, 30 Aug 2020 21:46:19 +0000 (UTC)
+
+This is an email from a spoofer impersonating jane@accountsreceivable.domaintoprotect.xyz. DMARC p=reject on Primary Domain.

@@ -1,0 +1,9 @@
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=192.168.7.72; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 0)
+	id F2F2F14143B; Sun,  9 Aug 2020 17:55:24 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: Default from Spoofer
+To: <bob@receivingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200809175524.F2F2F14143B@mail.domaintoprotect.xyz>
+Date: Sun,  9 Aug 2020 17:55:24 +0000 (UTC)

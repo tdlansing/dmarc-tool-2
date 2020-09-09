@@ -1,0 +1,9 @@
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.72; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 0)
+	id B4EB814144F; Sun, 30 Aug 2020 17:44:55 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: Added DKIM Primary Domain, From Spoofer
+To: <bob@receivingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200830174455.B4EB814144F@mail.domaintoprotect.xyz>
+Date: Sun, 30 Aug 2020 17:44:55 +0000 (UTC)

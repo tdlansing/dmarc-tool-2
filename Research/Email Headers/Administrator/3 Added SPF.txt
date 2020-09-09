@@ -1,0 +1,139 @@
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=192.168.7.110; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=pass (p=none dis=none) header.from=domaintoprotect.xyz
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 42204120ED3
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 19:24:18 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id 3E910120EE4
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 19:08:04 -0500 (CDT)
+MIME-Version: 1.0
+Date: Mon, 10 Aug 2020 00:08:04 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_288_190107121.1597018084"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <8e753cb772307e7f067e4e0191e70ba7@domaintoprotect.xyz>
+Subject: From Admin; Added SPF
+To: bob@receivingdomain.xyz
+In-Reply-To: <8e6ba5ba8e5ab8360fadb4f11475ab44@domaintoprotect.xyz>
+References: <8e6ba5ba8e5ab8360fadb4f11475ab44@domaintoprotect.xyz>
+ <168809f9c60cb75965e3ca85a1469042@domaintoprotect.xyz>
+ <d2783c0814956430b50ab372a287d635@domaintoprotect.xyz>
+ <6204360f0470c5e5ce5b5a600ba155e5@domaintoprotect.xyz>
+ <715769f59bab7867cf007a71424b84de@domaintoprotect.xyz>
+ <5b4f5c3e0eefee4f1d5e8a38e02fb77b@domaintoprotect.xyz>
+
+
+----=_RainLoop_288_190107121.1597018084
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added SPF
+
+----=_RainLoop_288_190107121.1597018084
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded SPF</div></body></html>
+
+----=_RainLoop_288_190107121.1597018084--
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id B31B8120ED3
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 19:16:40 -0500 (CDT)
+Received: from mail.domaintoprotect.xyz (domaintoprotect.xyz [192.168.7.110])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id A17EF121117
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 19:08:18 -0500 (CDT)
+Received: from [192.168.7.110] (localhost [127.0.0.1])
+	by mail.domaintoprotect.xyz (Postfix) with ESMTPA id 690F0120F18
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 19:08:18 -0500 (CDT)
+MIME-Version: 1.0
+Date: Mon, 10 Aug 2020 00:08:18 +0000
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_454_761643590.1597018098"
+X-Mailer: RainLoop/1.12.0
+From: administrator@domaintoprotect.xyz
+Message-ID: <1dca1116989a7e097a868fcd3a7959c5@domaintoprotect.xyz>
+Subject: From Admin; Added SPF
+To: bob@forwardingdomain.xyz
+In-Reply-To: <5519cee185807c39038b6c3010a61246@domaintoprotect.xyz>
+References: <5519cee185807c39038b6c3010a61246@domaintoprotect.xyz>
+ <ea4fe0d32ca114c35c7e251aafb6ba89@domaintoprotect.xyz>
+ <6741905334b0c43335d864ce5a431b16@domaintoprotect.xyz>
+ <a8255e516d46d69a55e79e9d47c60cd0@domaintoprotect.xyz>
+
+
+----=_RainLoop_454_761643590.1597018098
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Added SPF
+
+----=_RainLoop_454_761643590.1597018098
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">A=
+dded SPF</div></body></html>
+
+----=_RainLoop_454_761643590.1597018098--
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.72; helo=mail.domaintoprotect.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=domaintoprotect.xyz
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id 1A299120ED3
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 19:49:46 -0500 (CDT)
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 0)
+	id CA08114143D; Mon, 10 Aug 2020 00:49:46 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: Added SPF, From Spoofer
+To: <bob@receivingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200810004946.CA08114143D@mail.domaintoprotect.xyz>
+Date: Mon, 10 Aug 2020 00:49:46 +0000 (UTC)
+
+This is an email from a spoofer impersonating administrator@domaintoprotect.xyz. Post setting up SPF.
+
+
+
+Return-Path: <administrator@domaintoprotect.xyz>
+X-Original-To: bob@receivingdomain.xyz
+Delivered-To: bob@receivingdomain.xyz
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=192.168.7.140; helo=mail.forwardingdomain.xyz; envelope-from=administrator@domaintoprotect.xyz; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=domaintoprotect.xyz
+Received: from mail.forwardingdomain.xyz (forwardingdomain.xyz [192.168.7.140])
+	by mail.receivingdomain.xyz (Postfix) with ESMTPS id E9D74120ED3
+	for <bob@receivingdomain.xyz>; Sun,  9 Aug 2020 19:49:54 -0500 (CDT)
+Received: from mail.domaintoprotect.xyz (unknown [192.168.7.72])
+	by mail.forwardingdomain.xyz (Postfix) with ESMTPS id E4FD3121117
+	for <bob@forwardingdomain.xyz>; Sun,  9 Aug 2020 19:49:54 -0500 (CDT)
+Received: by mail.domaintoprotect.xyz (Postfix, from userid 0)
+	id D404214143D; Mon, 10 Aug 2020 00:49:54 +0000 (UTC)
+From: administrator@domaintoprotect.xyz
+Subject: Added SPF, From Spoofer
+To: <bob@forwardingdomain.xyz>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20200810004954.D404214143D@mail.domaintoprotect.xyz>
+Date: Mon, 10 Aug 2020 00:49:54 +0000 (UTC)
+
+This is an email from a spoofer impersonating administrator@domaintoprotect.xyz. Post setting up SPF.

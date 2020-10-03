@@ -2,23 +2,26 @@
 
 # ****************************************************************************
 # Purpose:
-# Assist System Administrators in implementing DMARC, SPF, 
-# and DKIM by asking questions and creating a file with the 
+# Assist System Administrators in implementing DMARC, SPF,
+# and DKIM by asking questions and creating a file with the
 # information needed to create the related DNS records.
 # ****************************************************************************
 # Creator:          Tim Lansing
-# Creation Date:    1 September 2020 
+# Creation Date:    9 September 2020
 # ****************************************************************************
 # Notes:
 # This script was created using:
 #     - Python 3.8.2.
+#     - dnspython 2.0.0 ('pip3 install dnspython')
 # ****************************************************************************
 # History:
-# 1 September 2020 - Tim Lansing - Initial creation.
+# 9 September 2020 - Tim Lansing - Copied from dmarc-poc.py.
 # ****************************************************************************
 
 # Imports
-import sys, os
+from get_input import *
+from DomainRecordHandler import DomainRecordHandler
+from DmarcRecord import DmarcRecord
 
 # Declare global variables.
 domain_name = ""
@@ -39,35 +42,51 @@ dmarc_aggregate_email_address = ""
 dmarc_forensic_email_address = ""
 spf_servers = ""
 dkim_selector = "*"
+domain_record_handler = ""
+dmarc_record = ""
 
 # Main function to be ran.
 def main():
-    displayWelcomeMessage()
-    askDmarcQuestions()
-    askSpfQuestions()
-    askDkimQuestions()
-    clearScreen()
-    printDmarcOutput()
-    printSpfOutput()
-    printDkimOutput()
+    '''
+    Main function of the program.
+    :return: None.
+    '''
+    display_welcome_message()
+    ask_dmarc_questions()
+    ask_spf_questions()
+    ask_dkim_questions()
+    clear_screen()
+    print_dmarc_output()
+    print_spf_output()
+    print_dkim_output()
     print("")
 
+
 # Display the welcome message.
-def displayWelcomeMessage():
-    clearScreen()
+def display_welcome_message():
+    '''
+    Displays the welcome message of the program.
+    :return: None.
+    '''
+    clear_screen()
     print("")
     print("****************************************************************************")
     print("Welcome. The purpose of this script is to assist in implementing")
     print("DMARC, SPF, and DKIM.")
     print("")
-    print("WARNING: This script is currently a proof of concept and a work")
-    print("in progress.")
+    print("WARNING: This script is a work in progress.")
     print(" 1. Confirm the validity of its output.")
-    print(" 2. Ensure your input is correct. Input validation needs to be added.")
+    print(" 2. Ensure your input is correct.")
     print("****************************************************************************")
 
+
 # Ask questions needed to configure DMARC.
-def askDmarcQuestions():
+def ask_dmarc_questions():
+    '''
+    Asks questions to gather information needed for DMARC.
+    :return: None.
+    '''
+
     # Declare global variables to be used.
     global domain_name
     global domain_is_used_for_email
@@ -78,35 +97,39 @@ def askDmarcQuestions():
     global dmarc_spf_alignment
     global dmarc_aggregate_email_address
     global dmarc_forensic_email_address
+    global domain_record_handler
+    global dmarc_record
 
     # Get the domain name.
-    print("")
-    domain_name = input("Domain name: ")
-    setSubdomain()
-    
-    # Check if domain is used for email.
-    user_input = ""
-    clearScreen()
-    while "y" != user_input and "n" != user_input:
-        print("Is '"+domain_name+"' used to send email?")
+    domain_name = ""
+    while domain_name == "":
         print("")
-        print("Enter: 'y' for yes or 'n' for no.")
-        print("")
-        user_input = input("Selection: ")
-        if ("n" == user_input):
-            domain_is_used_for_email = False
-        elif ("y" != user_input):
-            clearScreen()
-            print("Sorry, '"+user_input+"' is not a valid response. 'y' or 'n' must be entered.")
+        domain_name = input("Domain name: ")
+        clear_screen()
+        domain_record_handler = DomainRecordHandler(domain_name)
+        if not DomainRecordHandler.get_domain_exists(domain_name):
+            print("Unable to verify that this domain currently exists.")
             print("")
+        user_input = ask_yes_no_question(["Is '" + domain_name + "' the correct domain?"])
+        if "n" == user_input:
+            domain_name = ""
 
-    if(domain_is_used_for_email):
-    
+    set_subdomain()
+
+    # Check if domain is used for email.
+    clear_screen()
+    user_input = ask_yes_no_question(["Is '" + domain_name + "' used to send email?"])
+    if "n" == user_input:
+        domain_is_used_for_email = False
+
+    # If domain is used for email then ask these questions.
+    if domain_is_used_for_email:
+
         # Get the DMARC policy.
         dmarc_policy = ""
-        clearScreen()
+        clear_screen()
         while "" == dmarc_policy:
-            print("Do you want to monitor, quarantine, or reject emails from "+domain_name)
+            print("Do you want to monitor, quarantine, or reject emails from " + domain_name)
             print("that do not pass SPF and do not pass DKIM?")
             print("")
             print("Monitor- Recommended when first configuring DMARC.")
@@ -120,215 +143,203 @@ def askDmarcQuestions():
             print("'m' for monitor")
             print("'q' for quarantine")
             print("'r' for reject")
+            if "" != domain_record_handler.dmarc_record.p:
+                print("")
+                print("Note: Current domain policy is set to '" + domain_record_handler.dmarc_record.p + "'.")
             print("")
-            user_input = ""
             user_input = input("Policy selection: ")
             dmarc_policy = dmarc_policies.get(user_input, "")
-            if ("" == dmarc_policy):
-                clearScreen()
-                print("Sorry, '"+user_input+"' is not a valid choice. 'm', 'q', or 'r' must be entered.")
+            if "" == dmarc_policy:
+                clear_screen()
+                print("Sorry, '" + user_input + "' is not a valid choice. 'm', 'q', or 'r' must be entered.")
                 print("")
 
         # Get subdomain policy, if wanted.
-        user_input = ""
-        clearScreen()
-        while "y" != user_input and "n" != user_input:
-            print("Do you want to set a policy for subdomains of "+domain_name+"?")
-            print("If not set the policy set for "+domain_name+" will be used.")
-            print("")
-            print("Enter: 'y' for yes or 'n' for no.")
-            print("")
-            user_input = input("Selection: ")
-            if ("y" != user_input and "n" != user_input):
-                clearScreen()
-                print("Sorry, that is not a valid choice. 'y' or 'n' must be entered.")
-                print("")
-        clearScreen()
-        if ("y" == user_input):
+        clear_screen()
+        question = [
+            "Do you want to set a policy for subdomains of " + domain_name + "?",
+            "If not set the policy set for " + domain_name + " will be used."
+        ]
+        user_input = ask_yes_no_question(question)
+        if "y" == user_input:
             while "" == dmarc_subdomain_policy:
+                print("")
                 print("Enter:")
                 print("'m' for monitor")
                 print("'q' for quarantine")
                 print("'r' for reject")
+                if "" != domain_record_handler.dmarc_record.sp:
+                    print("")
+                    print("Note: Current subdomain policy is set to '" + domain_record_handler.dmarc_record.sp + "'.")
                 print("")
-                user_input = ""
                 user_input = input("Policy selection: ")
                 dmarc_subdomain_policy = dmarc_policies.get(user_input, "")
-                if ("" == dmarc_subdomain_policy):
-                    clearScreen()
-                    print("Sorry, '"+user_input+"' is not a valid choice. 'm', 'q', or 'r' must be entered.")
+                if "" == dmarc_subdomain_policy:
+                    clear_screen()
+                    print("Sorry, '" + user_input + "' is not a valid choice. 'm', 'q', or 'r' must be entered.")
                     print("")
 
         # Get DKIM and SPF alignment settings.
-        user_input = ""
-        clearScreen()
-        while "y" != user_input and "n" != user_input:
-            print("Will the email server's domain exactly match '"+domain_name+"'?")
-            print("")
-            if (domain_name == parent_domain_name):
-                print("Consider if the server for '"+domain_name+"'")
-                print("    will be used to send emails for any subdomains.")
-            else:
-                print("Consider if emails for '"+domain_name+"'")
-                print("    will be sent by the server controlling '"+parent_domain_name+"'.")
-                print("Or, if its own server will send emails for any subdomains under it.")
-            print("")
-            print("If so, then answer 'no'.")
-            print("")
-            print("WARNING: If unsure we recomend answering 'no'. Answering 'yes' will")
-            print("    increase security, but it may cause legitimate emails to be dropped")
-            print("    if not configured correctly.")
-            print("")
-            print("Enter: 'y' for yes or 'n' for no.")
-            print("")
-            user_input = input("Selection: ")
-            if ("y" != user_input and "n" != user_input):
-                clearScreen()
-                print("Sorry, '"+user_input+"' is not a valid choice. 'y' or 'n' must be entered.")
-                print("")
-        if ("y" == user_input):
+        clear_screen()
+        question = [
+            "Will the email server's domain exactly match '" + domain_name + "'?",
+            ""
+        ]
+        if domain_name == parent_domain_name:
+            question.append("Consider if the server for '" + domain_name + "'")
+            question.append("    will be used to send emails for any subdomains.")
+        else:
+            question.append("Consider if emails for '" + domain_name + "'")
+            question.append("    will be sent by the server controlling '" + parent_domain_name + "'.")
+            question.append("Or, if its own server will send emails for any subdomains under it.")
+        question.append("")
+        question.append("If so, then answer 'no'.")
+        question.append("")
+        question.append("WARNING: If unsure we recommend answering 'no'. Answering 'yes' will")
+        question.append("    increase security, but it may cause legitimate emails to be dropped")
+        question.append("    if not configured correctly.")
+        if "s" != domain_record_handler.dmarc_record.adkim and "s" != domain_record_handler.dmarc_record.aspf:
+            question.append("")
+            question.append("Note: Currently the domain is configured for 'yes'.")
+        elif "r" != domain_record_handler.dmarc_record.adkim or "r" != domain_record_handler.dmarc_record.aspf:
+            question.append("")
+            question.append("Note: Currently the domain is configured for 'no'.")
+        user_input = ask_yes_no_question(question)
+        if "y" == user_input:
             dmarc_dkim_alignment = "; adkim=s"
             dmarc_spf_alignment = "; aspf=s"
 
     # Get aggregate reporting email address if reports are wanted.
-    user_input = ""
-    clearScreen()
-    while "y" != user_input and "n" != user_input:
-        print("Would you like to receive aggregate reports? We recommend to do so.")
+    clear_screen()
+    if "" != domain_record_handler.dmarc_record.rua:
+        email_addresses = ""
+        for email_address in domain_record_handler.dmarc_record.rua:
+            if "" != email_addresses:
+                email_addresses += ", "
+            email_addresses = email_addresses + (email_address.split(":")[1]).strip()
+        print("Note: Currently aggregate reports are sent to '"+email_addresses+"'.")
         print("")
-        print("WARNING: Email addresses are public. It is recommended to use")
-        print("    dedicated email addresses and deploy abuse countermeasures.")
-        print("")
-        print("WARNING: If you choose to receive DMARC reports at an email address with a")
-        print("    different domain than the one being configured then a DNS entry will need")
-        print("    to be made for that domain as well.")
-        print("")
-        print("Enter: 'y' for yes or 'n' for no.")
-        print("")
-        user_input = input("Selection: ")
-        if ("y" != user_input and "n" != user_input):
-            clearScreen()
-            print("Sorry, '"+user_input+"' is not a valid choice. 'y' or 'n' must be entered.")
-            print("")
+    question = [
+        "Would you like to receive aggregate reports? We recommend to do so.",
+        "",
+        "WARNING: Email addresses are public. It is recommended to use",
+        "    dedicated email addresses and deploy abuse countermeasures.",
+        "",
+        "WARNING: If you choose to receive DMARC reports at an email address with a",
+        "    different domain than the one being configured then a DNS entry will need",
+        "    to be made for that domain as well."
+    ]
+    user_input = ask_yes_no_question(question)
     # If the user wants to get aggregate reports then get the email address.
-    if ("y" == user_input):
+    if "y" == user_input:
         dmarc_aggregate_email_address = ""
-        clearScreen()
+        clear_screen()
         # While there is no DMARC aggregate email address set ask for one.
         while "" == dmarc_aggregate_email_address:
             dmarc_aggregate_email_address = input("Aggregate email address: ")
             # Get the root domain from the email address to compare with that of the domain being configured.
-            email_domain = getRootDomainFromEmail(dmarc_aggregate_email_address)
+            email_domain = get_root_domain_from_email(dmarc_aggregate_email_address)
             user_input2 = ""
-            # While the aggregate email address comes from a different domain and the user input 2 is not set saying
-            # the user confirms that they understand, ask the user to confirm.
-            while email_domain != parent_domain_name and "" == user_input2:
-                print("")
-                print("The email address '"+dmarc_aggregate_email_address+"' has a root domain of '"+email_domain+"'")
-                print("    which is different than '"+parent_domain_name+"'. A DNS entry will need by be made at")
-                print("    '"+email_domain+"'. Are you sure you want to use this email address?")
-                print("")
-                print("Enter: 'y' for yes or 'n' for no.")
-                print("")
-                user_input2 = input("Selection: ")
-                if ("y" != user_input2 and "n" != user_input2):
-                    clearScreen()
-                    print("Sorry, '"+user_input2+"' is not a valid choice. 'y' or 'n' must be entered.")
-                    user_input2 = ""
+            # If the aggregate email address comes from a different domain ask the user to confirm.
+            if email_domain != parent_domain_name:
+                question2 = [
+                    "",
+                    "The email address '" + dmarc_aggregate_email_address + "' has a root domain of",
+                    "    '" + email_domain + "' which is different than '" + parent_domain_name + "'. A DNS entry",
+                    "    will need by be made at '" + email_domain + "'. Are you sure you want to use this email",
+                    "     address?"
+                ]
+                user_input2 = ask_yes_no_question(question2)
             # If the user states they do not want to use this email address then clear the address provided and
             # ask the user for an email address again.
-            if ("n" == user_input2):
+            if "n" == user_input2:
                 dmarc_aggregate_email_address = ""
-                clearScreen()
-                print("Please try again.")
+                clear_screen()
+                print("Please enter a different email address.")
                 print("")
 
     # Get forensic reporting email address and reporting option if reports are wanted.
-    user_input = ""
-    clearScreen()
-    while "y" != user_input and "n" != user_input:
-        print("Would you like to receive forensic reports?")
+    clear_screen()
+    if "" != domain_record_handler.dmarc_record.ruf:
+        email_addresses = ""
+        for email_address in domain_record_handler.dmarc_record.ruf:
+            if "" != email_addresses:
+                email_addresses += ", "
+            email_addresses = email_addresses + (email_address.split(":")[1]).strip()
+        print("Note: Currently forensic reports are sent to '" + email_addresses + "'.")
         print("")
-        print("Recommended for troubleshooting or if policy is set to quarantine or reject.")
-        print("")
-        print("WARNING: Email addresses are public. It is recommended to use")
-        print("    dedicated email addresses and deploy abuse countermeasures.")
-        print("")
-        print("WARNING: If SPF and/or DKIM are not implemented then reports may be")
-        print("    received for each email sent.")
-        print("")
-        print("WARNING: If you choose to receive DMARC reports at an email address with a")
-        print("    different domain than the one being configured then a DNS entry will need")
-        print("    to be made for that domain as well.")
-        print("")
-        print("Enter: 'y' for yes or 'n' for no.")
-        print("")
-        user_input = input("Selection: ")
-        if ("y" != user_input and "n" != user_input):
-            clearScreen()
-            print("Sorry, '"+user_input+"' is not a valid choice. 'y' or 'n' must be entered.")
-            print("")
+    question = [
+        "Would you like to receive forensic reports?",
+        "",
+        "Recommended for troubleshooting or if policy is set to quarantine or reject.",
+        "",
+        "WARNING: Email addresses are public. It is recommended to use",
+        "    dedicated email addresses and deploy abuse countermeasures.",
+        "",
+        "WARNING: If SPF and/or DKIM are not implemented then reports may be",
+        "    received for each email sent.",
+        "",
+        "WARNING: If you choose to receive DMARC reports at an email address with a",
+        "    different domain than the one being configured then a DNS entry will need",
+        "    to be made for that domain as well."
+    ]
+    user_input = ask_yes_no_question(question)
     # If the user wants to get forensic reports then get the email address.
-    if ("y" == user_input):
+    if "y" == user_input:
         dmarc_forensic_email_address = ""
-        clearScreen()
+        clear_screen()
         # While there is no DMARC forensic email address set ask for one.
         while "" == dmarc_forensic_email_address:
             dmarc_forensic_email_address = input("Forensic email address: ")
             # Get the root domain from the email address to compare with that of the domain being configured.
-            email_domain = getRootDomainFromEmail(dmarc_forensic_email_address)
+            email_domain = get_root_domain_from_email(dmarc_forensic_email_address)
             user_input2 = ""
             # While the forensic email address comes from a different domain and the user input 2 is not set saying
             # the user confirms that they understand, ask the user to confirm.
-            while email_domain != parent_domain_name and "" == user_input2:
-                print("")
-                print("The email address '"+dmarc_forensic_email_address+"' has a root domain of '"+email_domain+"'")
-                print("    which is different than '"+parent_domain_name+"'. A DNS entry will need by be made at")
-                print("    '"+email_domain+"'. Are you sure you want to use this email address?")
-                print("")
-                print("Enter: 'y' for yes or 'n' for no.")
-                print("")
-                user_input2 = input("Selection: ")
-                if ("y" != user_input2 and "n" != user_input2):
-                    clearScreen()
-                    print("Sorry, '"+user_input2+"' is not a valid choice. 'y' or 'n' must be entered.")
-                    user_input2 = ""
+            if email_domain != parent_domain_name:
+                question2 = [
+                    "",
+                    "The email address '" + dmarc_forensic_email_address + "' has a root domain of",
+                    "    '" + email_domain + "' which is different than '" + parent_domain_name + "'. A DNS entry",
+                    "    will need by be made at '" + email_domain + "'. Are you sure you want to use this email",
+                    "    address?"
+                ]
+                user_input2 = ask_yes_no_question(question2)
             # If the user states they do not want to use this email address then clear the address provided and
             # ask the user for an email address again.
-            if ("n" == user_input2):
+            if "n" == user_input2:
                 dmarc_forensic_email_address = ""
-                clearScreen()
-                print("Please try again.")
+                clear_screen()
+                print("Please enter a different email address.")
                 print("")
         # Get failure reporting option
-        user_input = ""
-        clearScreen()
-        while "y" != user_input and "n" != user_input:
-            print("By default DMARC failure reporting is only sent if SPF and DKIM both")
-            print("fail alignment.")
-            print("")
-            print("We recommend 'yes' so you receive reports if SPF or DKIM fail.")
-            print("")
-            print("Would you like to make this change?")
-            print("")
-            print("Enter: 'y' for yes or 'n' for no.")
-            print("")
-            user_input = input("Selection: ")
-            if ("y" != user_input and "n" != user_input):
-                clearScreen()
-                print("Sorry, '"+user_input+"' is not a valid choice. 'y' or 'n' must be entered.")
-                print("")
-        if ("y" == user_input):
+        clear_screen()
+        question = [
+            "By default DMARC failure reporting is only sent if SPF and DKIM both",
+            "fail alignment.",
+            "",
+            "We recommend 'yes' so you receive reports if SPF or DKIM fail.",
+            "",
+            "Would you like to make this change?"
+        ]
+        user_input = ask_yes_no_question(question)
+        if "y" == user_input:
             dmarc_failure_reporting_option = "; fo=1"
 
+
 # Ask questions needed to configure SPF and have not been previously asked.
-def askSpfQuestions():
+def ask_spf_questions():
+    '''
+    Asks questions to gather information needed for SPR, not already asked.
+    :return: None.
+    '''
+
     global spf_servers
-    
-    if(domain_is_used_for_email):
+
+    if domain_is_used_for_email:
         is_not_done = True
-        clearScreen()
-        while(is_not_done):
+        clear_screen()
+        while is_not_done:
             print("Add servers which may send email.")
             print("")
             print("Select:")
@@ -340,188 +351,222 @@ def askSpfQuestions():
             print("4. Add email servers with MX entries for your domain.")
             print("5. Done adding. Exit.")
             print("")
-            user_input = ""
             user_input = input("Selection: ")
-            # If spf_servers now contains something and the user selects Exit then set 
+            # If spf_servers now contains something and the user selects Exit then set
             # is_not_done to false.
-            if ("" != spf_servers and "5" == user_input):
+            if "" != spf_servers and "5" == user_input:
                 is_not_done = False
             else:
                 print("")
-                if ("1" == user_input):
+                if "1" == user_input:
                     server_input = input("Enter the IP address using CIDR notation: ")
-                    spf_servers = spf_servers+" ip4:"+server_input
-                    clearScreen()
-                    print("'"+server_input+"' has been added.")
+                    spf_servers = spf_servers + " ip4:" + server_input
+                    clear_screen()
+                    print("'" + server_input + "' has been added.")
                     print("")
-                elif ("2" == user_input):
+                elif "2" == user_input:
                     server_input = input("Enter the host name: ")
-                    periodCount = server_input.count(".")
+                    period_count = server_input.count(".")
                     # Check that there are at least two periods in the host name.
-                    if (periodCount > 1):
+                    if period_count > 1:
                         # Check that the host name matches.
-                        tempDomain = server_input[::-1]
-                        firstPeriodPosition = tempDomain.find(".")
-                        secondPeriodPosition = tempDomain.find(".", firstPeriodPosition+1)
-                        tempDomain = tempDomain[:secondPeriodPosition][::-1]
-                        if(tempDomain == parent_domain_name):
-                            spf_servers = spf_servers+" a:"+server_input
-                            clearScreen()
-                            print("'"+server_input+"' has been added.")
+                        temp_domain = server_input[::-1]
+                        first_period_position = temp_domain.find(".")
+                        second_period_position = temp_domain.find(".", first_period_position + 1)
+                        temp_domain = temp_domain[:second_period_position][::-1]
+                        if temp_domain == parent_domain_name:
+                            spf_servers = spf_servers + " a:" + server_input
+                            clear_screen()
+                            print("'" + server_input + "' has been added.")
                             print("")
                         else:
-                            clearScreen()
-                            print("Sorry, '"+server_input+"' is an invalid host name.")
-                            print("The domain must end in '"+parent_domain_name+"'.")
+                            clear_screen()
+                            print("Sorry, '" + server_input + "' is an invalid host name.")
+                            print("The domain must end in '" + parent_domain_name + "'.")
                             print("")
                     else:
-                        clearScreen()
-                        print("Sorry, '"+server_input+"' is an invalid host name. Must be in the format of 'host.domain.com'.")
+                        clear_screen()
+                        print("Sorry, '" + server_input + "' is an invalid host name. Must be in the format of")
+                        print("'host.domain.com'.")
                         print("")
-                elif ("3" == user_input):
+                elif "3" == user_input:
                     server_input = input("Enter the 3rd party domain which will send email on this domain's behalf: ")
-                    spf_servers = spf_servers+" include:"+server_input
-                    clearScreen()
-                    print("'"+server_input+"' has been added.")
+                    spf_servers = spf_servers + " include:" + server_input
+                    clear_screen()
+                    print("'" + server_input + "' has been added.")
                     print("")
-                elif ("4" == user_input):
-                    spf_servers = spf_servers+" mx"
-                    clearScreen()
+                elif "4" == user_input:
+                    spf_servers = spf_servers + " mx"
+                    clear_screen()
                     print("Servers with MX entries have been added.")
                     print("")
-                elif ("5" == user_input):
-                    clearScreen()
+                elif "5" == user_input:
+                    clear_screen()
                     print("Sorry, at least one device must be added.")
                     print("")
                 else:
-                    clearScreen()
-                    print("Sorry, '"+user_input+"' is not a valid choice.")
+                    clear_screen()
+                    print("Sorry, '" + user_input + "' is not a valid choice.")
                     print("")
 
+
 # Ask questions needed to configure DKIM and have not been previously asked.
-def askDkimQuestions():
+def ask_dkim_questions():
+    '''
+    Asks questions to gather information needed for DKIM, not already asked.
+    :return: None.
+    '''
+
     global dkim_selector
-    
-    if(domain_is_used_for_email):
-    
-        clearScreen()
+
+    if domain_is_used_for_email:
+
+        clear_screen()
         print("If DKIM has been configured on your server, what is the name of your selector?")
         print("")
         dkim_selector = input("Name: ")
         # If no input was provided set selector to 'selector' to allow for an example to be provided.
-        if ("" == dkim_selector):
+        if "" == dkim_selector:
             dkim_selector = "selector"
+
 
 # Check to see if the domain provided is a subdomain. If so, set
 # "subdomain_name" to a period followed by what is in "domain_name", but
 # without the parent domain portion.
-# The preceeding period is needed for the DNS host names.
+# The proceeding period is needed for the DNS host names.
 # Example: "mail.domain.xyz" becomes ".mail"
-def setSubdomain():
+def set_subdomain():
+    '''
+    Sets the value for the global variables subdomain_name and/or parent_domain_name.
+    :return: None.
+    '''
     global subdomain_name
     global parent_domain_name
-    periodCount = domain_name.count('.')
+    period_count = domain_name.count('.')
     # If there is more than one period then it is a subdomain.
-    if (periodCount > 1):
+    if period_count > 1:
         # Reverse the domain_name string. This places the parent domain at
         # the beginning and makes it easier to remove.
-        tempDomain = domain_name[::-1]
-        firstPeriodPosition = tempDomain.find(".")
-        secondPeriodPosition = tempDomain.find(".", firstPeriodPosition+1)
+        temp_domain = domain_name[::-1]
+        first_period_position = temp_domain.find(".")
+        second_period_position = temp_domain.find(".", first_period_position + 1)
         # Set the parent domain name.
-        parent_domain_name = tempDomain[:secondPeriodPosition][::-1]
-        # Get all characters from the second period's postion on.
-        tempDomain = tempDomain[secondPeriodPosition+1:]
+        parent_domain_name = temp_domain[:second_period_position][::-1]
+        # Get all characters from the second period's position on.
+        temp_domain = temp_domain[second_period_position + 1:]
         # Reverse the string again to get the characters back in the correct
         # order.
-        subdomain_name = "."+tempDomain[::-1]
+        subdomain_name = "." + temp_domain[::-1]
     else:
         parent_domain_name = domain_name
 
-def getRootDomainFromEmail(email_address):
+
+def get_root_domain_from_email(email_address):
+    '''
+    Takes an email address and returns the root domain for the email account.
+    :param email_address: Email address to find the root domain for.
+    :return: Root domain of the email address provided.
+    '''
+
     at_position = email_address.find("@")
-    root_domain = email_address[at_position+1::]
-    while(root_domain.count('.') > 1):
+    root_domain = email_address[at_position + 1::]
+    while root_domain.count('.') > 1:
         period_position = root_domain.find(".")
-        root_domain = root_domain[period_position+1::]
+        root_domain = root_domain[period_position + 1::]
     return root_domain
 
-def printDmarcOutput():
+
+def print_dmarc_output():
+    '''
+    Prints the information needed for DNS records needed for DMARC.
+    :return: None.
+    '''
+
     # Print DMARC TXT record information.
-    print("DMARC DNS RECORD ("+parent_domain_name+")")
+    print("DMARC DNS RECORD (" + parent_domain_name + ")")
     print("Record type: TXT")
-    print("Host name:   _dmarc"+subdomain_name)
-    if (domain_is_used_for_email):
-        print("Value:       v=DMARC1; p="+dmarc_policy, end = '')
-        if ("" != dmarc_subdomain_policy):
-            print("; sp="+dmarc_subdomain_policy, end = '')
-        print(dmarc_failure_reporting_option, end = '')
-        print(dmarc_dkim_alignment, end ='')
-        print(dmarc_spf_alignment, end = '')
+    print("Host name:   _dmarc" + subdomain_name)
+    if domain_is_used_for_email:
+        print("Value:       v=DMARC1; p=" + dmarc_policy, end='')
+        if "" != dmarc_subdomain_policy:
+            print("; sp=" + dmarc_subdomain_policy, end='')
+        print(dmarc_failure_reporting_option, end='')
+        print(dmarc_dkim_alignment, end='')
+        print(dmarc_spf_alignment, end='')
     else:
-        print("Value:       v=DMARC1; p=reject; sp=reject", end = '')
-        print(dmarc_failure_reporting_option, end = '')
-    if ("" != dmarc_aggregate_email_address):
-        print("; rua=mailto:"+dmarc_aggregate_email_address, end = '')
-    if ("" != dmarc_forensic_email_address):
-        print("; ruf=mailto:"+dmarc_forensic_email_address, end = '')
+        print("Value:       v=DMARC1; p=reject; sp=reject", end='')
+        print(dmarc_failure_reporting_option, end='')
+    if "" != dmarc_aggregate_email_address:
+        print("; rua=mailto:" + dmarc_aggregate_email_address, end='')
+    if "" != dmarc_forensic_email_address:
+        print("; ruf=mailto:" + dmarc_forensic_email_address, end='')
     print("")
-    
+
     # Get domain for where emails are going.
-    atPosition = dmarc_aggregate_email_address.find("@")
-    aggregate_email_domain = dmarc_aggregate_email_address[atPosition+1:]
+    at_position = dmarc_aggregate_email_address.find("@")
+    aggregate_email_domain = dmarc_aggregate_email_address[at_position + 1:]
     # If aggregate report emails are going to a different domain then print DNS record for that domain.
-    if (aggregate_email_domain != domain_name and "" != aggregate_email_domain):
+    if aggregate_email_domain != domain_name and "" != aggregate_email_domain:
         print("")
-        print("DMARC DNS RECORD ("+aggregate_email_domain+")")
+        print("DMARC DNS RECORD (" + aggregate_email_domain + ")")
         print("Record type: TXT")
-        print("Host name:   "+domain_name+"._report._dmarc."+aggregate_email_domain)
+        print("Host name:   " + domain_name + "._report._dmarc." + aggregate_email_domain)
         print("Value:       v=DMARC1")
 
     # Get domain for where emails are going.
-    atPosition = dmarc_forensic_email_address.find("@")
-    forensic_email_domain = dmarc_forensic_email_address[atPosition+1:]
+    at_position = dmarc_forensic_email_address.find("@")
+    forensic_email_domain = dmarc_forensic_email_address[at_position + 1:]
     # If forensic report emails are going to a different domain then print DNS record for that domain.
 
-    if (forensic_email_domain != domain_name and forensic_email_domain != aggregate_email_domain and "" != forensic_email_domain):
+    if (
+            forensic_email_domain != domain_name and
+            forensic_email_domain != aggregate_email_domain and
+            "" != forensic_email_domain
+    ):
         print("")
-        print("DMARC DNS RECORD ("+forensic_email_domain+")")
+        print("DMARC DNS RECORD (" + forensic_email_domain + ")")
         print("Record type: TXT")
-        print("Host name:   "+domain_name+"._report._dmarc."+forensic_email_domain)
+        print("Host name:   " + domain_name + "._report._dmarc." + forensic_email_domain)
         print("Value:       v=DMARC1")
 
-def printSpfOutput():
+
+def print_spf_output():
+    '''
+    Prints the information needed for DNS records for SPF.
+    :return: None.
+    '''
+
     # Print SPF TXT record information.
     print("")
-    print("SPF DNS RECORD ("+parent_domain_name+")")
+    print("SPF DNS RECORD (" + parent_domain_name + ")")
     print("Record type: TXT")
-    if ("" == subdomain_name):
+    if "" == subdomain_name:
         print("Host name:   @")
     else:
-        print("Host name:   "+subdomain_name[1:])
-    print("Value:       v=spf1", end = '')
-    print(spf_servers+" ~all")
+        print("Host name:   " + subdomain_name[1:])
+    print("Value:       v=spf1", end='')
+    print(spf_servers + " ~all")
 
-def printDkimOutput():
+
+def print_dkim_output():
+    '''
+    Prints the information needed for DNS records for DKIM.
+    :return: None.
+    '''
+
     # Print DKIM TXT record information.
     print("")
-    print("DKIM DNS RECORD ("+parent_domain_name+")")
+    print("DKIM DNS RECORD (" + parent_domain_name + ")")
     print("Record type: TXT")
-    if ("" == subdomain_name):
-        print("Host name:   "+dkim_selector+"._domainkey")
+    if "" == subdomain_name:
+        print("Host name:   " + dkim_selector + "._domainkey")
     else:
-        print("Host name:   "+dkim_selector+"._domainkey"+subdomain_name)
-    print("Value:       v=DKIM1; k=rsa; p=", end = '')
-    if(domain_is_used_for_email):
-        print("ReplaceThisTextWithYourPublicKey", end = '')
+        print("Host name:   " + dkim_selector + "._domainkey" + subdomain_name)
+    print("Value:       v=DKIM1; k=rsa; p=", end='')
+    if domain_is_used_for_email:
+        print("ReplaceThisTextWithYourPublicKey", end='')
     print("")
 
-def clearScreen():
-    try:
-        if os.system("cls") != 0:
-            raise Exception("Operating system is not Windows.")
-    except Exception:
-        os.system("clear")
 
 if __name__ == "__main__":
     main()

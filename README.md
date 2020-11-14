@@ -1,4 +1,4 @@
-# dmarc-poc
+# dmarc-tool
 This is an updated version of a tool created at https://github.com/tdlansing/dmarc-poc. 
 
 dmarc-tool was created as part of a research project on simplifying the implementation of DMARC, SPF, and DKIM. (https://www.sans.org/reading-room/whitepapers/email/defeat-dread-adopting-dmarc-protect-domains-unauthorized-email-39950)

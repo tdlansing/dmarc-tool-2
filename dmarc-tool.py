@@ -19,9 +19,8 @@
 # ****************************************************************************
 
 # Imports
-from get_input import *
 from DomainRecordHandler import DomainRecordHandler
-from DmarcRecord import DmarcRecord
+from get_input import *
 
 # Declare global variables.
 domain_name = ""
@@ -39,11 +38,12 @@ dmarc_failure_reporting_option = ""
 dmarc_dkim_alignment = ""
 dmarc_spf_alignment = ""
 dmarc_aggregate_email_address = ""
-dmarc_forensic_email_address = ""
+dmarc_failure_email_address = ""
 spf_servers = ""
 dkim_selector = "*"
 domain_record_handler = ""
 dmarc_record = ""
+
 
 # Main function to be ran.
 def main():
@@ -77,6 +77,7 @@ def display_welcome_message():
     print("WARNING: This script is a work in progress.")
     print(" 1. Confirm the validity of its output.")
     print(" 2. Ensure your input is correct.")
+    print(" 3. Please report any issues at https://github.com/tdlansing/dmarc-tool-2.")
     print("****************************************************************************")
 
 
@@ -96,7 +97,7 @@ def ask_dmarc_questions():
     global dmarc_dkim_alignment
     global dmarc_spf_alignment
     global dmarc_aggregate_email_address
-    global dmarc_forensic_email_address
+    global dmarc_failure_email_address
     global domain_record_handler
     global dmarc_record
 
@@ -133,11 +134,11 @@ def ask_dmarc_questions():
             print("that do not pass SPF and do not pass DKIM?")
             print("")
             print("Monitor- Recommended when first configuring DMARC.")
-            print("Quarantine- Recommended be used before setting to reject. Emails")
-            print("    should go to the SPAM / Junk mail folder if they do not pass.")
-            print("Reject- Preferred because malicious emails may not arrive to the user.")
-            print("    However, legitimate emails not passing may also be dropped. This")
-            print("    is also recommended for domains that do not send email.")
+            print("Quarantine- Recommended to be used before setting to reject. This requests")
+            print("    are sent to the SPAM / Junk mail folder if SPF an DKIM do not pass.")
+            print("Reject- Requests emails not passing SPF and DKIM are dropped and on domains")
+            print("    that don't send email. Preferred if SPF and DKIM are implemented and")
+            print("    working. Legitimate emails not passing may also be dropped.")
             print("")
             print("Enter:")
             print("'m' for monitor")
@@ -158,7 +159,7 @@ def ask_dmarc_questions():
         clear_screen()
         question = [
             "Do you want to set a policy for subdomains of " + domain_name + "?",
-            "If not set the policy set for " + domain_name + " will be used."
+            "If not set, the policy of '" + dmarc_policy + "' will be used."
         ]
         user_input = ask_yes_no_question(question)
         if "y" == user_input:
@@ -195,7 +196,7 @@ def ask_dmarc_questions():
         question.append("")
         question.append("If so, then answer 'no'.")
         question.append("")
-        question.append("WARNING: If unsure we recommend answering 'no'. Answering 'yes' will")
+        question.append("WARNING: If unsure, we recommend answering 'no'. Answering 'yes' will")
         question.append("    increase security, but it may cause legitimate emails to be dropped")
         question.append("    if not configured correctly.")
         if "s" != domain_record_handler.dmarc_record.adkim and "s" != domain_record_handler.dmarc_record.aspf:
@@ -220,13 +221,13 @@ def ask_dmarc_questions():
         print("Note: Currently aggregate reports are sent to '"+email_addresses+"'.")
         print("")
     question = [
-        "Would you like to receive aggregate reports? We recommend to do so.",
+        "Would you like to receive aggregate reports? We recommend doing so.",
         "",
         "WARNING: Email addresses are public. It is recommended to use",
         "    dedicated email addresses and deploy abuse countermeasures.",
         "",
         "WARNING: If you choose to receive DMARC reports at an email address with a",
-        "    different domain than the one being configured then a DNS entry will need",
+        "    different domain than '" + domain_name + "' then a DNS entry will need",
         "    to be made for that domain as well."
     ]
     user_input = ask_yes_no_question(question)
@@ -246,8 +247,8 @@ def ask_dmarc_questions():
                     "",
                     "The email address '" + dmarc_aggregate_email_address + "' has a root domain of",
                     "    '" + email_domain + "' which is different than '" + parent_domain_name + "'. A DNS entry",
-                    "    will need by be made at '" + email_domain + "'. Are you sure you want to use this email",
-                    "     address?"
+                    "    will need by be made at '" + email_domain + "'. Are you sure you want to use this",
+                    "    email address?"
                 ]
                 user_input2 = ask_yes_no_question(question2)
             # If the user states they do not want to use this email address then clear the address provided and
@@ -258,7 +259,7 @@ def ask_dmarc_questions():
                 print("Please enter a different email address.")
                 print("")
 
-    # Get forensic reporting email address and reporting option if reports are wanted.
+    # Get failure reporting email address and reporting option if reports are wanted.
     clear_screen()
     if "" != domain_record_handler.dmarc_record.ruf:
         email_addresses = ""
@@ -266,10 +267,10 @@ def ask_dmarc_questions():
             if "" != email_addresses:
                 email_addresses += ", "
             email_addresses = email_addresses + (email_address.split(":")[1]).strip()
-        print("Note: Currently forensic reports are sent to '" + email_addresses + "'.")
+        print("Note: Currently failure reports are sent to '" + email_addresses + "'.")
         print("")
     question = [
-        "Would you like to receive forensic reports?",
+        "Would you like to receive failure reports?",
         "",
         "Recommended for troubleshooting or if policy is set to quarantine or reject.",
         "",
@@ -280,35 +281,35 @@ def ask_dmarc_questions():
         "    received for each email sent.",
         "",
         "WARNING: If you choose to receive DMARC reports at an email address with a",
-        "    different domain than the one being configured then a DNS entry will need",
+        "    different domain than '" + domain_name + "' then a DNS entry will need",
         "    to be made for that domain as well."
     ]
     user_input = ask_yes_no_question(question)
-    # If the user wants to get forensic reports then get the email address.
+    # If the user wants to get failure reports then get the email address.
     if "y" == user_input:
-        dmarc_forensic_email_address = ""
+        dmarc_failure_email_address = ""
         clear_screen()
-        # While there is no DMARC forensic email address set ask for one.
-        while "" == dmarc_forensic_email_address:
-            dmarc_forensic_email_address = input("Forensic email address: ")
+        # While there is no DMARC failure email address set ask for one.
+        while "" == dmarc_failure_email_address:
+            dmarc_failure_email_address = input("Failure email address: ")
             # Get the root domain from the email address to compare with that of the domain being configured.
-            email_domain = get_root_domain_from_email(dmarc_forensic_email_address)
+            email_domain = get_root_domain_from_email(dmarc_failure_email_address)
             user_input2 = ""
-            # While the forensic email address comes from a different domain and the user input 2 is not set saying
+            # While the failure email address comes from a different domain and the user input 2 is not set saying
             # the user confirms that they understand, ask the user to confirm.
             if email_domain != parent_domain_name:
                 question2 = [
                     "",
-                    "The email address '" + dmarc_forensic_email_address + "' has a root domain of",
+                    "The email address '" + dmarc_failure_email_address + "' has a root domain of",
                     "    '" + email_domain + "' which is different than '" + parent_domain_name + "'. A DNS entry",
-                    "    will need by be made at '" + email_domain + "'. Are you sure you want to use this email",
-                    "    address?"
+                    "    will need by be made at '" + email_domain + "'. Are you sure you want to use this",
+                    "    email address?"
                 ]
                 user_input2 = ask_yes_no_question(question2)
             # If the user states they do not want to use this email address then clear the address provided and
             # ask the user for an email address again.
             if "n" == user_input2:
-                dmarc_forensic_email_address = ""
+                dmarc_failure_email_address = ""
                 clear_screen()
                 print("Please enter a different email address.")
                 print("")
@@ -498,8 +499,8 @@ def print_dmarc_output():
         print(dmarc_failure_reporting_option, end='')
     if "" != dmarc_aggregate_email_address:
         print("; rua=mailto:" + dmarc_aggregate_email_address, end='')
-    if "" != dmarc_forensic_email_address:
-        print("; ruf=mailto:" + dmarc_forensic_email_address, end='')
+    if "" != dmarc_failure_email_address:
+        print("; ruf=mailto:" + dmarc_failure_email_address, end='')
     print("")
 
     # Get domain for where emails are going.
@@ -514,19 +515,19 @@ def print_dmarc_output():
         print("Value:       v=DMARC1")
 
     # Get domain for where emails are going.
-    at_position = dmarc_forensic_email_address.find("@")
-    forensic_email_domain = dmarc_forensic_email_address[at_position + 1:]
-    # If forensic report emails are going to a different domain then print DNS record for that domain.
+    at_position = dmarc_failure_email_address.find("@")
+    failure_email_domain = dmarc_failure_email_address[at_position + 1:]
+    # If failure report emails are going to a different domain then print DNS record for that domain.
 
     if (
-            forensic_email_domain != domain_name and
-            forensic_email_domain != aggregate_email_domain and
-            "" != forensic_email_domain
+            failure_email_domain != domain_name and
+            failure_email_domain != aggregate_email_domain and
+            "" != failure_email_domain
     ):
         print("")
-        print("DMARC DNS RECORD (" + forensic_email_domain + ")")
+        print("DMARC DNS RECORD (" + failure_email_domain + ")")
         print("Record type: TXT")
-        print("Host name:   " + domain_name + "._report._dmarc." + forensic_email_domain)
+        print("Host name:   " + domain_name + "._report._dmarc." + failure_email_domain)
         print("Value:       v=DMARC1")
 
 

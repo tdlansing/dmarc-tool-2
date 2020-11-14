@@ -5,4 +5,6 @@ dmarc-tool was created as part of a research project on simplifying the implemen
 
 This program is a work in progress. Any suggestions are welcome and may be worked on as time permits.
 
+Setup: the script requires dnspython to work. If installing with pip type "pip3 install dnspython".
+
 Run this script by going to the directory where it is placed and typing "python3 dmarc-tool.py".

@@ -1,5 +1,11 @@
-import dns.resolver
+import sys
 from DmarcRecord import DmarcRecord
+
+try:
+    import dns.resolver
+except ModuleNotFoundError:
+    print("Error: The 'dnspython' library could not be found. Please install and try again.")
+    sys.exit("If using 'pip', this command may help 'sudo pip3 install dnspython'.")
 
 
 class DomainRecordHandler:
